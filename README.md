@@ -37,9 +37,9 @@ and [Textract](https://github.com/deanmalmgren/textract) can be used to extract 
 This repository is the web crawler / spider.
 If you wish to assist in different aspects (Data Engineering / Web development / DevOps), we have divided the project to several additional repositories focusing on these topics:
 
-* The machine-learning engine can be found in our [Main repository](https://github.com/liadmagen/Keep-Current)
-* Web Development & UI/UX experiments can be found in our [App repository](https://github.com/liadmagen/Keep-Current-App)
-* Data Engineering tasks are more than welcomed in our [Data Engineering repository](https://github.com/liadmagen/Keep-Current-Storage)
+* The machine-learning engine can be found in our [Main repository](https://github.com/Keep-Current/Keep-Current)
+* Web Development & UI/UX experiments can be found in our [App repository](https://github.com/Keep-Current/Keep-Current-App)
+* Data Engineering tasks are more than welcomed in our [Data Engineering repository](https://github.com/Keep-Current/Keep-Current-Storage)
 * Devops tasks are all across the project. We are trying to develop this project in a serverless architecture, and currently looking into Docker and Kubernetes as well as different hosting providers and plans. Feel free to join the discussion and provide your input!
 
 [travis-badge-url]: https://travis-ci.org/liadmagen/Keep-Current.svg?branch=master

@@ -24,7 +24,8 @@ We welcome anyone who would like to join and contribute. We meet regularly every
 
 ## Web Crawler
 
-This repository deploys a web crawler, that given a specific set of sources (URLs), should locate new documents (web-pages) and save them in the DB for future processing
+This repository deploys a web crawler, that given a specific set of sources (URLs), should locate new documents (web-pages) and save them in the DB for future processing.
+When possible, in websites that allow, an API can be used. For example, for [arxiv.org](https://arxiv.org/help/api/index).
 
 ### Recommended tools:
 

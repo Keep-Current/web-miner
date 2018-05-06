@@ -20,7 +20,7 @@ This repository deploys a web crawler, that given a specific set of sources (URL
 
 We lean heavily on existing tools as well as developing our own new methods. Among the existing tools we are using [scrapy](https://scrapy.org/) which later we hope to host on [scrapy-cloud](https://scrapinghub.com/scrapy-cloud).
 Another related tool that should be considered is [scrapy-splash](https://github.com/scrapy-plugins/scrapy-splash) which can render JS-based pages before storing them.
-and Textract
+[Textract](https://github.com/deanmalmgren/textract) can be used to extract the content, the text, to be saved.
 
 ### Vision & Roadmap
 

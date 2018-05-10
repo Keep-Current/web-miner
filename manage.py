@@ -1,10 +1,21 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import os
-import sys
 
-if __name__ == "__main__":
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "crawler.settings")
+from flask_script import Manager, Server
+from flask_script.commands import Clean, ShowUrls
 
-    from django.core.management import execute_from_command_line
+from flask_server.app import create_app
 
-    execute_from_command_line(sys.argv)
+
+#app = create_app(os.environ.get('FLASK_ENV') or 'DevConfig')
+app = create_app()
+manager = Manager(app)
+
+manager.add_command('server', Server())
+manager.add_command('urls', ShowUrls())
+manager.add_command('clean', Clean())
+
+if __name__ == '__main__':
+    manager.run()

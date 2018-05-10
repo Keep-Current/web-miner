@@ -1,0 +1,11 @@
+-r prod.txt
+
+pytest
+tox
+coverage
+pytest-cov
+pytest-flask
+gunicorn
+flake8
+Sphinx
+Flask-Script

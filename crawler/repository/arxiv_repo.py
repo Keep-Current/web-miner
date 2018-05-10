@@ -108,7 +108,7 @@ class ArxivRepo:
             self,
             search_query='cat:cs.CV+OR+cat:cs.AI+OR+cat:cs.LG+OR+cat:cs.CL+OR+cat:cs.NE+OR+cat:stat.ML',
             start_index=0,
-            max_index=10000,
+            max_index=100,
             results_per_iteration=100,
             wait_time=5.0,
             break_on_no_added=True
@@ -147,8 +147,8 @@ class ArxivRepo:
                 # dict_entry['links'] # PDF
                 # dict_entry['summary'] #abstract
 
-                print(json.dumps(dict_entry, indent=4))
-                print('-----------------------------------------------')
+                #print(json.dumps(dict_entry, indent=4))
+                #print('-----------------------------------------------')
 
                 results.append(dict_entry)
                 

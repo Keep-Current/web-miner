@@ -1,0 +1,22 @@
+{
+    "name": "Keep Current - Crawler and Document finder",
+    "description": "It opens an API for cron to trigger a search or update the query",
+    "image": "heroku/python",
+    "repository": "https://github.com/Keep-Current/Crawler-Scrapper",
+    "keywords": ["python", "django" ],
+    "env": {
+      "SECRET_KEY": {
+        "description": "The secret key for the Django application.",
+        "generator": "secret"
+      }
+    },
+    "environments": {
+      "test": {
+        "scripts": {
+          "test-setup": "python manage.py collectstatic --noinput",
+          "test": "python manage.py test"
+        }
+      }
+    }
+  }
+  

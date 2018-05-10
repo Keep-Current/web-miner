@@ -10,6 +10,32 @@ In this project, we aspire to create a platform for students, researchers, profe
 
 The goal is to create an automated system that scans the web, through a list of trusted sources, classify and categorize the documents it finds, and match them to the different users, according to their interest. It then presents it as a timely summarized digest to the user, whether by email or within a site.
 
+## Web Crawler
+
+This repository deploys a web crawler, that given a specific set of sources (URLs), should locate new documents (web-pages) and save them in the DB for future processing.
+When possible, in websites that allow, an API can be used. For example, for [arxiv.org](https://arxiv.org/help/api/index).
+
+### Recommended tools:
+
+We lean heavily on existing tools as well as developing our own new methods. Among the existing tools we are using [scrapy](https://scrapy.org/) which later we hope to host on [scrapy-cloud](https://scrapinghub.com/scrapy-cloud).
+Another related tool that should be considered is [scrapy-splash](https://github.com/scrapy-plugins/scrapy-splash) which can render JS-based pages before storing them.
+and [Textract](https://github.com/deanmalmgren/textract) can be used to extract the content, the text, to be saved.
+
+### Getting started
+
+for running this project locally, please install pipenv.
+```
+pip install pipenv
+```
+Then run:
+````
+pipenv install
+```
+after all the dependencies are installed, please run
+```
+pipenv run python manage.py 
+```
+
 ## Who are we?
 
 This project intends to be a shared work of *Vienna Data Science Cafe* Meet-Up members, with the purpose, beside the obvious result, to also be used as a learning platform, while advancing the Natural Language Processing / Machine Learning field by exploring, comparing and hacking different models.
@@ -21,17 +47,6 @@ Project board is on [Trello](https://trello.com/b/KmMEPjfT/keep-current) and we 
 ## I want to help
 
 We welcome anyone who would like to join and contribute. We meet regularly every month in Vienna through the Data Science Cafe meetup of the VDSG, show our progress and discuss the next steps.
-
-## Web Crawler
-
-This repository deploys a web crawler, that given a specific set of sources (URLs), should locate new documents (web-pages) and save them in the DB for future processing.
-When possible, in websites that allow, an API can be used. For example, for [arxiv.org](https://arxiv.org/help/api/index).
-
-### Recommended tools:
-
-We lean heavily on existing tools as well as developing our own new methods. Among the existing tools we are using [scrapy](https://scrapy.org/) which later we hope to host on [scrapy-cloud](https://scrapinghub.com/scrapy-cloud).
-Another related tool that should be considered is [scrapy-splash](https://github.com/scrapy-plugins/scrapy-splash) which can render JS-based pages before storing them.
-and [Textract](https://github.com/deanmalmgren/textract) can be used to extract the content, the text, to be saved.
 
 ## The repository
 

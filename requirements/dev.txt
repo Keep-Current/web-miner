@@ -1,0 +1,4 @@
+pip
+wheel
+flake8
+Sphinx

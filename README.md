@@ -1,7 +1,7 @@
 # Keep-Current - The Web Crawler
 
 <!-- Badges section here. -->
-[![Build Status](https://img.shields.io/travis/liadmagen/Keep-Current-Crawler/master.svg?label=travis)][travis-badge-url]
+[![Build Status](https://travis-ci.org/Keep-Current/Crawler-Scrapper.svg?branch=master)](https://travis-ci.org/Keep-Current/Crawler-Scrapper)
 
 After studying a topic, keeping current with the news, published papers, advanced technologies and such proved to be a hard work.
 One must attend conventions, subscribe to different websites and newsletters, go over different emails, alerts and such while filtering the relevant data out of these sources.

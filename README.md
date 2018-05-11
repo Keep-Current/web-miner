@@ -2,6 +2,7 @@
 
 <!-- Badges section here. -->
 [![Build Status](https://travis-ci.org/Keep-Current/Crawler-Scrapper.svg?branch=master)](https://travis-ci.org/Keep-Current/Crawler-Scrapper)
+[![BCH compliance](https://bettercodehub.com/edge/badge/Keep-Current/Crawler-Scrapper?branch=master)](https://bettercodehub.com/)
 
 After studying a topic, keeping current with the news, published papers, advanced technologies and such proved to be a hard work.
 One must attend conventions, subscribe to different websites and newsletters, go over different emails, alerts and such while filtering the relevant data out of these sources.

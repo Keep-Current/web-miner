@@ -24,4 +24,4 @@ class TestConfig(Config):
     """Test configuration."""
     ENV = 'test'
     TESTING = True
-DEBUG = True
+    DEBUG = True

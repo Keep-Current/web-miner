@@ -25,14 +25,19 @@ and [Textract](https://github.com/deanmalmgren/textract) can be used to extract 
 ### Getting started
 
 for running this project locally, please install pipenv.
+
 ```
 pip install pipenv
 ```
+
 Then run:
-````
+
+```
 pipenv install
 ```
+
 after all the dependencies are installed, please run
+
 ```
 pipenv run python manage.py 
 ```

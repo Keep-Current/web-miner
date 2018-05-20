@@ -48,7 +48,7 @@ This project intends to be a shared work of *Vienna Data Science Cafe* Meet-Up m
 
 Please feel free to [contribute](CONTRIBUTING.md).
 
-Project board is on [Trello](https://trello.com/b/KmMEPjfT/keep-current) and we use [Slack](https://vdsg.slack.com/messages/C9BNW5N9L/details) as our communication channel.
+Project board is on [Trello](https://trello.com/b/KmMEPjfT/keep-current) and we use [Slack](https://keep-current.slack.com) as our communication channel. If you're new, you can join using [this link](https://join.slack.com/t/keep-current/shared_invite/enQtMzY4MTA0OTQ0NTAzLTcxY2U5NmIwNmM0NmU2MmMyMWQ0YTIyMTg4MWRjMWUyYmVlNWQxMzU3ZWJlNjM4NzVmNTFhM2FjYjkzZDU3YWM )
 
 ## I want to help
 

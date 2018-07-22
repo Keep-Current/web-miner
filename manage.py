@@ -16,6 +16,7 @@ manager = Manager(app)
 manager.add_command('server', Server())
 manager.add_command('urls', ShowUrls())
 manager.add_command('clean', Clean())
+manager.add_command('docker', Server(host='0.0.0.0', port=5000))
 
 if __name__ == '__main__':
     manager.run()

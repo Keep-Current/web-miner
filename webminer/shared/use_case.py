@@ -1,4 +1,4 @@
-from crawler.shared import response_object as res
+from webminer.shared import response_object as res
 
 
 class UseCase(object):

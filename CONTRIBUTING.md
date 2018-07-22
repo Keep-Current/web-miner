@@ -12,9 +12,9 @@ All contributions to this project will be released under the Apache License. By 
 
 We welcome anyone who would like to join and contribute. We meet regularly every month in Vienna through the Data Science Cafe meetup of the VDSG, show our progress and discuss the next steps. Please follow [our meetup page](https://www.meetup.com/Vienna-Data-Science-Group-Meetup/) to get updates regarding our next meeting.
 
-## Web Crawler
+## Web Miner
 
-This repository deploys a web crawler, that given a specific set of sources (URLs), should locate new documents (web-pages) and save them in the DB for future processing
+This repository deploys a web miner, that given a specific set of sources (URLs), should locate new documents (web-pages) and save them in the DB for future processing
 
 ### Recommended tools:
 

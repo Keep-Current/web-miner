@@ -1,5 +1,5 @@
-from crawler.shared import use_case as uc
-from crawler.shared import response_object as res
+from webminer.shared import use_case as uc
+from webminer.shared import response_object as res
 
 class ArxivDocumentListUseCase(uc.UseCase):
 

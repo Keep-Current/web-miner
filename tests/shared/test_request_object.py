@@ -1,4 +1,4 @@
-from crawler.shared import request_object as req
+from webminer.shared import request_object as req
 
 
 def test_invalid_request_object_is_false():

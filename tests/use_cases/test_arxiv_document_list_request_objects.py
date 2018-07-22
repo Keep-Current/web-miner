@@ -1,4 +1,4 @@
-from crawler.use_cases import request_objects as ro
+from webminer.use_cases import request_objects as ro
 
 
 def test_build_storageroom_list_request_object_without_parameters():

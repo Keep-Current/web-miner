@@ -4,6 +4,7 @@
 [![Build Status](https://travis-ci.org/Keep-Current/web-miner.svg?branch=master)](https://travis-ci.org/Keep-Current/web-miner)
 [![CircleCI](https://circleci.com/gh/Keep-Current/web-miner.svg?style=svg)](https://circleci.com/gh/Keep-Current/web-miner)
 [![BCH compliance](https://bettercodehub.com/edge/badge/Keep-Current/web-miner?branch=master)](https://bettercodehub.com/)
+[![codecov](https://codecov.io/gh/Keep-Current/web-miner/branch/master/graph/badge.svg)](https://codecov.io/gh/Keep-Current/web-miner)
 
 ## Web Miner
 

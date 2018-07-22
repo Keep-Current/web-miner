@@ -28,7 +28,12 @@ We lean heavily on existing tools as well as developing our own new methods.
 
 ### Getting started
 
-for running this project locally, please install pipenv.
+for running this project locally, you need first to install the dependency packages.
+To install them, you can either use [pipenv](https://docs.pipenv.org/) or [anaconda](https://anaconda.org/).
+
+#### Installation using pipenv
+
+For using pipenv, please make sure you have it installed. Otherwise, install pipenv using pip:
 
 ```
 pip install pipenv
@@ -45,6 +50,32 @@ after all the dependencies are installed, please run
 ```
 pipenv run python manage.py server
 ```
+
+If you are on Windows OS, some packages may not be installed. Specifically - flask-script and feedparser. In case the web server doesn't run, please install these packages manually using 
+```
+pip install feedparser
+pip install flask-script
+```
+
+#### Installing using Anaconda
+If you have anaconda installed, it's recommended to create an environment for the project, and install the dependencies in it.
+
+To create a new environment, open the anaconda prompt and run:
+```
+conda create -q -n web-miner python=3.6
+source activate web-miner
+``` 
+
+Then install the requirements into the activate web-miner environment using:
+```
+pip install -r requirements.txt
+```
+
+and test your installation by running the web server:
+```
+python manage.py server
+```
+
 
 ### Architecture
 

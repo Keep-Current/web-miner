@@ -25,3 +25,5 @@ script:
  - py.test
 notifications:
   slack: vdsg:YeRk6YBgJuTEtaRT1pPp76pb
+after_success:
+  - codecov

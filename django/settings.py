@@ -47,7 +47,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'crawler.urls'
+ROOT_URLCONF = 'webminer.urls'
 
 TEMPLATES = [
     {
@@ -65,7 +65,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'crawler.wsgl.application'
+WSGI_APPLICATION = 'webminer.wsgl.application'
 
 
 # Database

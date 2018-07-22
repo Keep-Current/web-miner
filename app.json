@@ -1,9 +1,9 @@
 {
-    "name": "Keep Current - Crawler and Document finder",
+    "name": "Keep Current - Web Miner and Document finder",
     "description": "It opens an API for cron to trigger a search or update the query",
     "image": "heroku/python",
-    "repository": "https://github.com/Keep-Current/Crawler-Scrapper",
-    "keywords": ["python", "django" ],
+    "repository": "https://github.com/Keep-Current/Web-Miner",
+    "keywords": ["python", "crawler", "miner", "flask", "django" ],
     "env": {
       "SECRET_KEY": {
         "description": "The secret key for the Django application.",

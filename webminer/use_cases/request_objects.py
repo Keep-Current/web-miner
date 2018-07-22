@@ -1,6 +1,6 @@
 import collections
 
-from crawler.shared import request_object as req
+from webminer.shared import request_object as req
 
 
 class ArxivDocumentListRequestObject(req.ValidRequestObject):

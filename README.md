@@ -1,8 +1,8 @@
 # Keep-Current - The Web Miner
 
 <!-- Badges section here. -->
-[![Build Status](https://travis-ci.org/Keep-Current/Crawler-Scrapper.svg?branch=master)](https://travis-ci.org/Keep-Current/Crawler-Scrapper)
-[![BCH compliance](https://bettercodehub.com/edge/badge/Keep-Current/Crawler-Scrapper?branch=master)](https://bettercodehub.com/)
+[![Build Status](https://travis-ci.org/Keep-Current/web-miner.svg?branch=master)](https://travis-ci.org/Keep-Current/Web-Miner)
+[![BCH compliance](https://bettercodehub.com/edge/badge/Keep-Current/web-miner?branch=master)](https://bettercodehub.com/)
 
 ## Web Miner
 
@@ -10,12 +10,16 @@ This repository is the web miner of the [Keep-Current project](#keep-current-pro
 
 The goal is to deploy a web crawler, that given a specific set of sources (URLs), should locate new documents (web-pages) and save them in the DB for future processing.
 When possible and legal, an API can be used.
-
-> For example, for [arxiv.org](https://arxiv.org/help/api/index).
+For example, for [arxiv.org](https://arxiv.org/help/api/index).
 
 ### Potential tools to implement
 
-We want to lean heavily on existing tools as well as developing our own new methods.
+## Web Miner
+
+This repository deploys a web spider and documenr miner, that given a specific set of sources (URLs), should locate new documents (web-pages) and save them in the DB for future processing.
+When possible, in websites that allow, an API can be used. For example, for [arxiv.org](https://arxiv.org/help/api/index).
+
+We lean heavily on existing tools as well as developing our own new methods.
 
 - [scrapy](https://scrapy.org/) which later we hope to host on [scrapy-cloud](https://scrapinghub.com/scrapy-cloud)
 - [scrapy-splash](https://github.com/scrapy-plugins/scrapy-splash) which can render JS-based pages before storing them.
@@ -38,7 +42,7 @@ pipenv install
 after all the dependencies are installed, please run
 
 ```
-pipenv run python manage.py
+pipenv run python manage.py server
 ```
 
 ### Architecture
@@ -61,6 +65,7 @@ Please visit
 for more.
 
 ## How to Contribute
+You can find our Project board here on (GitHub)[https://github.com/Keep-Current/web-miner/projects] and we use [Slack](https://keep-current.slack.com) as our communication channel. If you're new, you can join using [this link](https://join.slack.com/t/keep-current/shared_invite/enQtMzY4MTA0OTQ0NTAzLTcxY2U5NmIwNmM0NmU2MmMyMWQ0YTIyMTg4MWRjMWUyYmVlNWQxMzU3ZWJlNjM4NzVmNTFhM2FjYjkzZDU3YWM )
 
 We welcome anyone who would like to join and contribute.
 
@@ -81,11 +86,15 @@ In this project, we aspire to create a platform for students, researchers, profe
 
 The goal is to create an automated system that scans the web, through a list of trusted sources, classify and categorize the documents it finds, and match them to the different users, according to their interest. It then presents it as a timely summarized digest to the user, whether by email or within a site.
 
+This repository is the web miner. It encourage you to learn about software architecture, mining the web, setting up web-spiders, scheduling CRON Jobs, creating pipelines, etc.
+
 If you wish to assist in different aspects (Data Engineering / Web development / DevOps), we have divided the project to several additional repositories focusing on these topics:
 
-- The machine-learning engine can be found in our [Main repository](https://github.com/Keep-Current/Keep-Current)
-- Web Development & UI/UX experiments can be found in our [App repository](https://github.com/Keep-Current/Keep-Current-App)
-- Data Engineering tasks are more than welcomed in our [Data Engineering repository](https://github.com/Keep-Current/Keep-Current-Storage)
-- Devops tasks are all across the project. We are trying to develop this project in a serverless architecture, and currently looking into Docker and Kubernetes as well as different hosting providers and plans.
+- The machine-learning engine can be found in our [Main repository](https://github.com/Keep-Current/Engine)
+- Web Development & UI/UX experiments can be found in our [App repository](https://github.com/Keep-Current/WebApp)
+- Data Engineering tasks are more than welcomed in our [Data Engineering repository](https://github.com/Keep-Current/Data-Engineering)
+- Devops tasks are all across the project. This project is developed mostly in a serverless architecture. Using Docker and Kubernetes enables freedom in deploying it on different hosting providers and plans. 
 
-Feel free to join the discussion and provide your input!
+*Feel free to join the discussion and provide your input!*
+
+[travis-badge-url]: https://travis-ci.org/Keep-Current/web-miner.svg?branch=master

@@ -1,4 +1,4 @@
-from crawler.shared.domain_model import DomainModel
+from webminer.shared.domain_model import DomainModel
 
 class ArxivDocument(object):
     def __init__(

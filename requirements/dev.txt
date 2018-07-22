@@ -3,5 +3,5 @@
 pip
 wheel
 flake8
-Sphinx
-Flask-Script
+sphinx
+flask-script

@@ -2,7 +2,7 @@ import urllib.request
 import feedparser
 import json
 
-from crawler.domain import arxiv_document as ad
+from webminer.domain import arxiv_document as ad
 
 class ArxivRepo:
     """

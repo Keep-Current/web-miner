@@ -1,7 +1,7 @@
 from unittest import mock
 
-from crawler.shared import request_object as req, response_object as res
-from crawler.shared import use_case as uc
+from webminer.shared import request_object as req, response_object as res
+from webminer.shared import use_case as uc
 
 
 def test_use_case_cannot_process_valid_requests():

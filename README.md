@@ -1,6 +1,7 @@
 # Keep-Current - The Web Miner
 
 <!-- Badges section here. -->
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/883c8e93b4934566b9dfdc6b91fa85e7)](https://app.codacy.com/app/Keep-Current/web-miner?utm_source=github.com&utm_medium=referral&utm_content=Keep-Current/web-miner&utm_campaign=badger)
 [![Build Status](https://travis-ci.org/Keep-Current/web-miner.svg?branch=master)](https://travis-ci.org/Keep-Current/web-miner)
 [![CircleCI](https://circleci.com/gh/Keep-Current/web-miner.svg?style=svg)](https://circleci.com/gh/Keep-Current/web-miner)
 [![BCH compliance](https://bettercodehub.com/edge/badge/Keep-Current/web-miner?branch=master)](https://bettercodehub.com/)

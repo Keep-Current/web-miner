@@ -1,7 +1,8 @@
 # Keep-Current - The Web Miner
 
 <!-- Badges section here. -->
-[![Build Status](https://travis-ci.org/Keep-Current/web-miner.svg?branch=master)](https://travis-ci.org/Keep-Current/Web-Miner)
+[![Build Status](https://travis-ci.org/Keep-Current/web-miner.svg?branch=master)](https://travis-ci.org/Keep-Current/web-miner)
+[![CircleCI](https://circleci.com/gh/Keep-Current/web-miner.svg?style=svg)](https://circleci.com/gh/Keep-Current/web-miner)
 [![BCH compliance](https://bettercodehub.com/edge/badge/Keep-Current/web-miner?branch=master)](https://bettercodehub.com/)
 
 ## Web Miner
@@ -65,7 +66,7 @@ Please visit
 for more.
 
 ## How to Contribute
-You can find our Project board here on (GitHub)[https://github.com/Keep-Current/web-miner/projects] and we use [Slack](https://keep-current.slack.com) as our communication channel. If you're new, you can join using [this link](https://join.slack.com/t/keep-current/shared_invite/enQtMzY4MTA0OTQ0NTAzLTcxY2U5NmIwNmM0NmU2MmMyMWQ0YTIyMTg4MWRjMWUyYmVlNWQxMzU3ZWJlNjM4NzVmNTFhM2FjYjkzZDU3YWM )
+You can find our Project board here on [GitHub](https://github.com/Keep-Current/web-miner/projects) and we use [Slack](https://keep-current.slack.com) as our communication channel. If you're new, you can join using [this link](https://join.slack.com/t/keep-current/shared_invite/enQtMzY4MTA0OTQ0NTAzLTcxY2U5NmIwNmM0NmU2MmMyMWQ0YTIyMTg4MWRjMWUyYmVlNWQxMzU3ZWJlNjM4NzVmNTFhM2FjYjkzZDU3YWM )
 
 We welcome anyone who would like to join and contribute.
 

@@ -18,11 +18,6 @@ For example, for [arxiv.org](https://arxiv.org/help/api/index).
 
 ### Potential tools to implement
 
-## Web Miner
-
-This repository deploys a web spider and documenr miner, that given a specific set of sources (URLs), should locate new documents (web-pages) and save them in the DB for future processing.
-When possible, in websites that allow, an API can be used. For example, for [arxiv.org](https://arxiv.org/help/api/index).
-
 We lean heavily on existing tools as well as developing our own new methods.
 
 - [scrapy](https://scrapy.org/) which later we hope to host on [scrapy-cloud](https://scrapinghub.com/scrapy-cloud)
@@ -84,9 +79,9 @@ python manage.py server
 
 We follow the [clean architecture style](http://blog.thedigitalcatonline.com/blog/2016/11/14/clean-architectures-in-python-a-step-by-step-example/) and structure the codebase accordingly.
 
-![ceanArchitecture image](https://cdn-images-1.medium.com/max/1600/1*B7LkQDyDqLN3rRSrNYkETA.jpeg)
+![cleanArchitecture image](https://cdn-images-1.medium.com/max/1600/1*B7LkQDyDqLN3rRSrNYkETA.jpeg)
 
-*Image creadit to [Thang Chung under MIT terms](https://github.com/thangchung/blog-core)*
+*Image credit to [Thang Chung under MIT terms](https://github.com/thangchung/blog-core)*
 
 ## Who are we?
 

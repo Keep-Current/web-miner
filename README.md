@@ -48,13 +48,12 @@ pipenv install
 after all the dependencies are installed, please run
 
 ```
-pipenv run python manage.py server
+pipenv run flask run
 ```
 
-If you are on Windows OS, some packages may not be installed. Specifically - flask-script and feedparser. In case the web server doesn't run, please install these packages manually using 
+If you are on Windows OS, some packages may not be installed. Specifically - feedparser. In case the web server doesn't run, please install these packages manually using 
 ```
 pip install feedparser
-pip install flask-script
 ```
 
 #### Installing using Anaconda
@@ -73,7 +72,7 @@ pip install -r requirements.txt
 
 and test your installation by running the web server:
 ```
-python manage.py server
+flask run
 ```
 
 

@@ -4,4 +4,3 @@ pip
 wheel
 flake8
 sphinx
-flask-script

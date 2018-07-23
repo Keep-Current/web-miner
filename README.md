@@ -1,9 +1,12 @@
 # Keep-Current - The Web Miner
 
 <!-- Badges section here. -->
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/883c8e93b4934566b9dfdc6b91fa85e7)](https://app.codacy.com/app/Keep-Current/web-miner?utm_source=github.com&utm_medium=referral&utm_content=Keep-Current/web-miner&utm_campaign=badger)
 [![Build Status](https://travis-ci.org/Keep-Current/web-miner.svg?branch=master)](https://travis-ci.org/Keep-Current/web-miner)
 [![CircleCI](https://circleci.com/gh/Keep-Current/web-miner.svg?style=svg)](https://circleci.com/gh/Keep-Current/web-miner)
 [![BCH compliance](https://bettercodehub.com/edge/badge/Keep-Current/web-miner?branch=master)](https://bettercodehub.com/)
+[![codecov](https://codecov.io/gh/Keep-Current/web-miner/branch/master/graph/badge.svg)](https://codecov.io/gh/Keep-Current/web-miner)
+[![codebeat badge](https://codebeat.co/badges/03da69a3-74cf-468d-80f9-bc62651323f7)](https://codebeat.co/projects/github-com-keep-current-web-miner-master)
 
 ## Web Miner
 
@@ -14,11 +17,6 @@ When possible and legal, an API can be used.
 For example, for [arxiv.org](https://arxiv.org/help/api/index).
 
 ### Potential tools to implement
-
-## Web Miner
-
-This repository deploys a web spider and documenr miner, that given a specific set of sources (URLs), should locate new documents (web-pages) and save them in the DB for future processing.
-When possible, in websites that allow, an API can be used. For example, for [arxiv.org](https://arxiv.org/help/api/index).
 
 We lean heavily on existing tools as well as developing our own new methods.
 
@@ -80,9 +78,9 @@ flask run
 
 We follow the [clean architecture style](http://blog.thedigitalcatonline.com/blog/2016/11/14/clean-architectures-in-python-a-step-by-step-example/) and structure the codebase accordingly.
 
-![ceanArchitecture image](https://cdn-images-1.medium.com/max/1600/1*B7LkQDyDqLN3rRSrNYkETA.jpeg)
+![cleanArchitecture image](https://cdn-images-1.medium.com/max/1600/1*B7LkQDyDqLN3rRSrNYkETA.jpeg)
 
-*Image creadit to [Thang Chung under MIT terms](https://github.com/thangchung/blog-core)*
+*Image credit to [Thang Chung under MIT terms](https://github.com/thangchung/blog-core)*
 
 ## Who are we?
 

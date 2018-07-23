@@ -5,6 +5,7 @@ tox
 coverage
 pytest-cov
 pytest-flask
+codecov
 gunicorn
 flake8
 Sphinx

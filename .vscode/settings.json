@@ -1,3 +1,9 @@
 {
-    "python.formatting.provider": "autopep8"
+  "python.venvPath": "~/env/bin/python",
+  "python.pythonPath":
+    "/Users/danieldeutsch/.local/share/virtualenvs/web-miner-6HfxE5lH/bin/python",
+  "python.linting.pylintEnabled": true,
+  "python.linting.enabled": true,
+  "python.formatting.provider": "black",
+  "python.formatting.blackPath": "black"
 }

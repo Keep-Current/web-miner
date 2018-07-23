@@ -25,3 +25,5 @@ script:
  - py.test
 notifications:
   slack: vdsg:YeRk6YBgJuTEtaRT1pPp76pb
+after_success:
+  - codecov --token 80bcc8a7-2f30-4656-8565-709d5af5b8d0

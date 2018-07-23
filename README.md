@@ -1,6 +1,7 @@
 # Keep-Current - The Web Miner
 
 <!-- Badges section here. -->
+
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/883c8e93b4934566b9dfdc6b91fa85e7)](https://app.codacy.com/app/Keep-Current/web-miner?utm_source=github.com&utm_medium=referral&utm_content=Keep-Current/web-miner&utm_campaign=badger)
 [![Build Status](https://travis-ci.org/Keep-Current/web-miner.svg?branch=master)](https://travis-ci.org/Keep-Current/web-miner)
 [![CircleCI](https://circleci.com/gh/Keep-Current/web-miner.svg?style=svg)](https://circleci.com/gh/Keep-Current/web-miner)
@@ -27,53 +28,68 @@ We lean heavily on existing tools as well as developing our own new methods.
 ### Getting started
 
 for running this project locally, you need first to install the dependency packages.
-To install them, you can either use [pipenv](https://docs.pipenv.org/) or [anaconda](https://anaconda.org/).
+To install them, you can use
 
-#### Installation using pipenv
+- [pipenv](https://docs.pipenv.org/)
+- [anaconda](https://anaconda.org/)
+- [virtualenv](https://virtualenv.pypa.io/en/stable/)
 
-For using pipenv, please make sure you have it installed. Otherwise, install pipenv using pip:
+#### Installation using pipenv (which combines virtualenv with pip)
 
-```
-pip install pipenv
-```
+Install pipenv
 
-Then run:
+```bash
+sudo easy_install pip # if you haven't installed pip
+pip install pipenv # install pipenv
 
-```
-pipenv install
-```
-
-after all the dependencies are installed, please run
-
-```
-pipenv run python manage.py server
+brew install pipenv # with homebrew (on macOS)
 ```
 
-If you are on Windows OS, some packages may not be installed. Specifically - flask-script and feedparser. In case the web server doesn't run, please install these packages manually using 
+Install the packages and run the server
+
+```bash
+pipenv install # install all packages
+
+pipenv run python manage.py server # run the server
 ```
+
+If you are on Windows OS, some packages may not be installed. Specifically - flask-script and feedparser. In case the web server doesn't run, please install these packages manually using
+
+```bash
 pip install feedparser
+
 pip install flask-script
 ```
 
 #### Installing using Anaconda
+
 If you have anaconda installed, it's recommended to create an environment for the project, and install the dependencies in it.
 
-To create a new environment, open the anaconda prompt and run:
-```
-conda create -q -n web-miner python=3.6
-source activate web-miner
-``` 
+```bash
+conda create -q -n web-miner python=3.6 # create the environment
 
-Then install the requirements into the activate web-miner environment using:
-```
-pip install -r requirements.txt
-```
+source activate web-miner # activate the environment
 
-and test your installation by running the web server:
-```
-python manage.py server
+pip install -r requirements.txt # install the packages
+
+python manage.py server # start server
 ```
 
+#### Installing using virtualenv and pip
+
+```bash
+sudo easy_install pip # installl pip if you haven't
+
+pip3 install --upgrade virtualenv # install virtualenv
+
+virtualenv --python3 <targetDirectory> # create the environment
+
+source <targetDirectory>/./bin/activate # activate the virtualenv
+
+pip install -r requirements.txt # install the packages
+
+python3 manage.py server # start server
+```
 
 ### Architecture
 
@@ -81,13 +97,14 @@ We follow the [clean architecture style](http://blog.thedigitalcatonline.com/blo
 
 ![cleanArchitecture image](https://cdn-images-1.medium.com/max/1600/1*B7LkQDyDqLN3rRSrNYkETA.jpeg)
 
-*Image credit to [Thang Chung under MIT terms](https://github.com/thangchung/blog-core)*
+_Image credit to [Thang Chung under MIT terms](https://github.com/thangchung/blog-core)_
 
 ## Who are we?
 
 This project intends to be a shared work of meetup members, with the purpose, beside the obvious result, to also be used as a learning platform, while advancing the Natural Language Processing / Machine Learning field by exploring, comparing and hacking different models.
 
 Please visit
+
 - the project board on [Github](https://github.com/orgs/Keep-Current/projects)
 - the repository board on [Github](https://github.com/Keep-Current/web-miner/projects)
 - our chat room on [Slack](https://keep-current.slack.com). If you're new, you can join using [this link](https://join.slack.com/t/keep-current/shared_invite/enQtMzY4MTA0OTQ0NTAzLTcxY2U5NmIwNmM0NmU2MmMyMWQ0YTIyMTg4MWRjMWUyYmVlNWQxMzU3ZWJlNjM4NzVmNTFhM2FjYjkzZDU3YWM)
@@ -95,13 +112,15 @@ Please visit
 for more.
 
 ## How to Contribute
-You can find our Project board here on [GitHub](https://github.com/Keep-Current/web-miner/projects) and we use [Slack](https://keep-current.slack.com) as our communication channel. If you're new, you can join using [this link](https://join.slack.com/t/keep-current/shared_invite/enQtMzY4MTA0OTQ0NTAzLTcxY2U5NmIwNmM0NmU2MmMyMWQ0YTIyMTg4MWRjMWUyYmVlNWQxMzU3ZWJlNjM4NzVmNTFhM2FjYjkzZDU3YWM )
+
+You can find our Project board here on [GitHub](https://github.com/Keep-Current/web-miner/projects) and we use [Slack](https://keep-current.slack.com) as our communication channel. If you're new, you can join using [this link](https://join.slack.com/t/keep-current/shared_invite/enQtMzY4MTA0OTQ0NTAzLTcxY2U5NmIwNmM0NmU2MmMyMWQ0YTIyMTg4MWRjMWUyYmVlNWQxMzU3ZWJlNjM4NzVmNTFhM2FjYjkzZDU3YWM)
 
 We welcome anyone who would like to join and contribute.
 
 Please see our [contribute guide](CONTRIBUTING.md).
 
 We meet regularly every month in Vienna through
+
 - the [Data Science Cafe meetup of the VDSG](https://www.meetup.com/Vienna-Data-Science-Group-Meetup/) or
 - the [WeAreDevelopers :: Keep-Current meetup](https://www.meetup.com/WeAreDevelopers/)
 
@@ -123,8 +142,8 @@ If you wish to assist in different aspects (Data Engineering / Web development /
 - The machine-learning engine can be found in our [Main repository](https://github.com/Keep-Current/Engine)
 - Web Development & UI/UX experiments can be found in our [App repository](https://github.com/Keep-Current/WebApp)
 - Data Engineering tasks are more than welcomed in our [Data Engineering repository](https://github.com/Keep-Current/Data-Engineering)
-- Devops tasks are all across the project. This project is developed mostly in a serverless architecture. Using Docker and Kubernetes enables freedom in deploying it on different hosting providers and plans. 
+- Devops tasks are all across the project. This project is developed mostly in a serverless architecture. Using Docker and Kubernetes enables freedom in deploying it on different hosting providers and plans.
 
-*Feel free to join the discussion and provide your input!*
+_Feel free to join the discussion and provide your input!_
 
 [travis-badge-url]: https://travis-ci.org/Keep-Current/web-miner.svg?branch=master

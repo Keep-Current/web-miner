@@ -1,4 +1,5 @@
 FROM python:3.7.0 AS web-miner
+MAINTAINER "Keep-Current"
 LABEL Maintainer="Liad Magen https://www.github.com/keep-current/web-miner"
 RUN mkdir -p /webminer
 WORKDIR /webminer

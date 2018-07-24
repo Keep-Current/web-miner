@@ -1,0 +1,24 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+logzero = ">=1.3.1"
+feedparser = ">5.1"
+pytest = "*"
+tox = "*"
+coverage = "*"
+pytest-cov = "*"
+pytest-flask = "*"
+codecov = "*"
+gunicorn = "*"
+"flake8" = "*"
+Flask = "*"
+Sphinx = "*"
+Flask-Script = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.7"

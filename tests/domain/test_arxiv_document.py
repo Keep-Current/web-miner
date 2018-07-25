@@ -11,7 +11,7 @@ test_pdf_url = 'https://arxiv.org/pdf/1801.06605'
 def test_arxivDoc_model_init():
     code = uuid.uuid4()
     arxivDoc = ad.ArxivDocument(
-        id=code,
+        doc_id=code,
         url=test_url,
         title = test_title,
         abstract = test_abstract,
@@ -19,7 +19,7 @@ def test_arxivDoc_model_init():
         publish_date = test_publish_date,
         pdf_url = test_pdf_url
     )
-    assert arxivDoc.id == code
+    assert arxivDoc.doc_id == code
     assert arxivDoc.url == test_url
     assert arxivDoc.title == test_title
     assert arxivDoc.abstract == test_abstract
@@ -32,7 +32,7 @@ def test_arxivDoc_model_from_dict():
     code = uuid.uuid4()
     arxivDoc = ad.ArxivDocument.from_dict(
         {
-            'id': code,
+            'doc_id': code,
             'url': test_url,
             'title': test_title,
             'summary': test_abstract,
@@ -49,7 +49,7 @@ def test_arxivDoc_model_from_dict():
             ]
         }
     )
-    assert arxivDoc.id == code
+    assert arxivDoc.doc_id == code
     assert arxivDoc.url == test_url
     assert arxivDoc.title == test_title
     assert arxivDoc.abstract == test_abstract

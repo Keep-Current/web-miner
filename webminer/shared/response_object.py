@@ -1,5 +1,5 @@
 class ResponseSuccess(object):
-    SUCCESS = 'SUCCESS'
+    SUCCESS = "SUCCESS"
 
     def __init__(self, value=None):
         self.type = self.SUCCESS
@@ -12,9 +12,9 @@ class ResponseSuccess(object):
 
 
 class ResponseFailure(object):
-    RESOURCE_ERROR = 'RESOURCE_ERROR'
-    PARAMETERS_ERROR = 'PARAMETERS_ERROR'
-    SYSTEM_ERROR = 'SYSTEM_ERROR'
+    RESOURCE_ERROR = "RESOURCE_ERROR"
+    PARAMETERS_ERROR = "PARAMETERS_ERROR"
+    SYSTEM_ERROR = "SYSTEM_ERROR"
 
     def __init__(self, type_, message):
         self.type = type_
@@ -27,7 +27,7 @@ class ResponseFailure(object):
 
     @property
     def value(self):
-        return {'type': self.type, 'message': self.message}
+        return {"type": self.type, "message": self.message}
 
     def __bool__(self):
         return False
@@ -46,6 +46,10 @@ class ResponseFailure(object):
 
     @classmethod
     def build_from_invalid_request_object(cls, invalid_request_object):
-        message = "\n".join(["{}: {}".format(err['parameter'], err['message'])
-                             for err in invalid_request_object.errors])
+        message = "\n".join(
+            [
+                "{}: {}".format(err["parameter"], err["message"])
+                for err in invalid_request_object.errors
+            ]
+        )
         return cls.build_parameters_error(message)

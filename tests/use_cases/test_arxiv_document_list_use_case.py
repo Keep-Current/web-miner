@@ -10,7 +10,7 @@ from webminer.use_cases import arxiv_document_use_case as uc
 @pytest.fixture
 def domain_storagerooms():
     arxiv_doc_1 = ArxivDocument(
-        id="url_1",
+        doc_id="url_1",
         url="url_1",
         title = "title_1",
         abstract = "abstract_1",
@@ -20,7 +20,7 @@ def domain_storagerooms():
     )
 
     arxiv_doc_2 = ArxivDocument(
-        id="url_2",
+        doc_id="url_2",
         url="url_2",
         title = "title_2",
         abstract = "abstract_2",
@@ -30,7 +30,7 @@ def domain_storagerooms():
     )
 
     arxiv_doc_3 = ArxivDocument(
-        id="url_3",
+        doc_id="url_3",
         url="url_3",
         title = "title_3",
         abstract = "abstract_3",
@@ -40,7 +40,7 @@ def domain_storagerooms():
     )
 
     arxiv_doc_4 = ArxivDocument(
-        id="url_4",
+        doc_id="url_4",
         url="url_4",
         title = "title_4",
         abstract = "abstract_4",

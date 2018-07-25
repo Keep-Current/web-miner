@@ -4,7 +4,7 @@ class ArxivDocEncoder(json.JSONEncoder):
     def default(self, o):
         try:
             to_serialize = {
-                "id": o.id,
+                "id": o.doc_id,
                 "url": o.url,
                 "title": o.title,
                 "abstract": o.abstract,

@@ -15,7 +15,7 @@ test_pdf_url = 'https://arxiv.org/pdf/1801.06605'
 
 def test_serialize_domain_arxiv_document():
     arxiv_doc = ArxivDocument(
-        id = 'f853578c-fc0f-4e65-81b8-566c5dffa35a',
+        doc_id = 'f853578c-fc0f-4e65-81b8-566c5dffa35a',
         url= test_url,
         title = test_title,
         abstract = test_abstract,

@@ -74,7 +74,7 @@ class ArxivRepo:
         ret_dict["authors"] = [auth["name"] for auth in fp_dict["authors"]]
         ret_dict["title"] = fp_dict["title"]
         ret_dict["abstract"] = fp_dict["summary"]
-        ret_dict["id"] = fp_dict["id"]  # may be redundant when guidislink == true
+        ret_dict["doc_id"] = fp_dict["doc_id"]  # may be redundant when guidislink == true
         ret_dict["link"] = fp_dict["link"]
 
         for link in fp_dict["links"]:
@@ -106,7 +106,8 @@ class ArxivRepo:
         ix = url.rfind("/")
         idversion = url[ix + 1 :]  # extract just the id (and the version)
         parts = idversion.split("v")
-        assert len(parts) == 2, "error parsing url " + url
+        if not len(parts) == 2:
+            raise AssertionError("error parsing url " + url)
         return parts[0], int(parts[1])
 
     def fetch_papers(

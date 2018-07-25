@@ -2,8 +2,8 @@ from webminer.shared.domain_model import DomainModel
 
 
 class ArxivDocument(object):
-    def __init__(self, id, title, abstract, authors, url, publish_date, pdf_url):
-        self.id = id
+    def __init__(self, doc_id, title, abstract, authors, url, publish_date, pdf_url):
+        self.doc_id = doc_id
         self.title = title
         self.abstract = abstract
         self.authors = authors
@@ -22,7 +22,7 @@ class ArxivDocument(object):
                 pass
 
         document = ArxivDocument(
-            id=feedparser_dict["id"],
+            doc_id=feedparser_dict["doc_id"],
             title=feedparser_dict["title"],
             abstract=feedparser_dict["summary"],
             authors=[auth["name"] for auth in feedparser_dict["authors"]],

@@ -5,17 +5,17 @@ from webminer.shared import response_object as res, request_object as req
 
 @pytest.fixture
 def response_value():
-    return {'key': ['value1', 'value2']}
+    return {"key": ["value1", "value2"]}
 
 
 @pytest.fixture
 def response_type():
-    return 'ResponseError'
+    return "ResponseError"
 
 
 @pytest.fixture
 def response_message():
-    return 'This is a response error'
+    return "This is a response error"
 
 
 def test_valid_request_object_cannot_be_used():
@@ -47,11 +47,11 @@ def test_response_failure_has_type_and_message(response_type, response_message):
 def test_response_failure_contains_value(response_type, response_message):
     response = res.ResponseFailure(response_type, response_message)
 
-    assert response.value == {'type': response_type, 'message': response_message}
+    assert response.value == {"type": response_type, "message": response_message}
 
 
 def test_response_failure_initialization_with_exception():
-    response = res.ResponseFailure(response_type, Exception('Just an error message'))
+    response = res.ResponseFailure(response_type, Exception("Just an error message"))
 
     assert bool(response) is False
     assert response.type == response_type
@@ -59,15 +59,17 @@ def test_response_failure_initialization_with_exception():
 
 
 def test_response_failure_from_invalid_request_object():
-    response = res.ResponseFailure.build_from_invalid_request_object(req.InvalidRequestObject())
+    response = res.ResponseFailure.build_from_invalid_request_object(
+        req.InvalidRequestObject()
+    )
 
     assert bool(response) is False
 
 
 def test_response_failure_from_invalid_request_object_with_errors():
     request_object = req.InvalidRequestObject()
-    request_object.add_error('path', 'Is mandatory')
-    request_object.add_error('path', "can't be blank")
+    request_object.add_error("path", "Is mandatory")
+    request_object.add_error("path", "can't be blank")
 
     response = res.ResponseFailure.build_from_invalid_request_object(request_object)
 

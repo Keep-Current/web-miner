@@ -1,8 +1,8 @@
 from django.conf.urls import include, url
 from django.urls import path
 
-#from django.contrib import admin
-#admin.autodiscover()
+# from django.contrib import admin
+# admin.autodiscover()
 
 from . import views
 
@@ -11,7 +11,7 @@ from . import views
 # url(r'^blog/', include('blog.urls')),
 
 urlpatterns = [
-    url(r'^$', views.arxiv, name='index'),
+    url(r"^$", views.arxiv, name="index"),
     # url(r'^db', hello.views.db, name='db'),
-#    path('admin/', admin.site.urls),
+    #    path('admin/', admin.site.urls),
 ]

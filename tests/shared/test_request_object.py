@@ -9,8 +9,8 @@ def test_invalid_request_object_is_false():
 
 def test_invalid_request_object_accepts_errors():
     request = req.InvalidRequestObject()
-    request.add_error(parameter='aparam', message='wrong value')
-    request.add_error(parameter='anotherparam', message='wrong type')
+    request.add_error(parameter="aparam", message="wrong value")
+    request.add_error(parameter="anotherparam", message="wrong type")
 
     assert request.has_errors() is True
     assert len(request.errors) == 2

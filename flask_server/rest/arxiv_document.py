@@ -7,25 +7,23 @@ from webminer.repository import arxiv_repo as ar
 from webminer.use_cases import arxiv_document_use_case as uc
 from webminer.serializers.json import arxiv_document_serializer as ser
 
-blueprint = Blueprint('arxiv', __name__)
+blueprint = Blueprint("arxiv", __name__)
 
 STATUS_CODES = {
-    res.ResponseSuccess.
-    SUCCESS: 200,
+    res.ResponseSuccess.SUCCESS: 200,
     res.ResponseFailure.RESOURCE_ERROR: 404,
     res.ResponseFailure.PARAMETERS_ERROR: 400,
-    res.ResponseFailure.SYSTEM_ERROR: 500
+    res.ResponseFailure.SYSTEM_ERROR: 500,
 }
 
-@blueprint.route('/arxiv', methods=['GET'])
+
+@blueprint.route("/arxiv", methods=["GET"])
 def arxiv():
-    qrystr_params = {
-        'filters': {},
-    }
+    qrystr_params = {"filters": {}}
 
     for arg, values in request.args.items():
-        if arg.startswith('filter_'):
-            qrystr_params['filters'][arg.replace('filter_', '')] = values
+        if arg.startswith("filter_"):
+            qrystr_params["filters"][arg.replace("filter_", "")] = values
 
     request_object = req.ArxivDocumentListRequestObject.from_dict(qrystr_params)
 
@@ -34,6 +32,9 @@ def arxiv():
 
     response = use_case.execute(request_object)
 
-    return Response(json.dumps(response.value, cls=ser.ArxivDocEncoder),
-                    mimetype='application/json',
-                    status=STATUS_CODES[response.type])
+    return Response(
+        json.dumps(response.value, cls=ser.ArxivDocEncoder),
+        mimetype="application/json",
+        status=STATUS_CODES[response.type],
+    )
+

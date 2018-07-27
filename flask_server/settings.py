@@ -10,18 +10,21 @@ class Config(object):
 
 class ProdConfig(Config):
     """Production configuration."""
-    ENV = 'prod'
+
+    ENV = "prod"
     DEBUG = False
 
 
 class DevConfig(Config):
     """Development configuration."""
-    ENV = 'dev'
+
+    ENV = "dev"
     DEBUG = True
 
 
 class TestConfig(Config):
     """Test configuration."""
-    ENV = 'test'
+
+    ENV = "test"
     TESTING = True
     DEBUG = True

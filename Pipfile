@@ -17,8 +17,16 @@ gunicorn = "*"
 Flask = "*"
 Sphinx = "*"
 Flask-Script = "*"
+pylint = "*"
+black = "*"
 
 [dev-packages]
 
 [requires]
 python_version = "3.7"
+
+[pipenv]
+allow_prereleases = true
+
+[environment]
+PIPENV_VENV_IN_PROJECT=true

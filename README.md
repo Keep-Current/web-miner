@@ -50,15 +50,13 @@ Install the packages and run the server
 ```bash
 pipenv install # install all packages
 
-pipenv run python manage.py server # run the server
+pipenv run flask run # run the server
 ```
 
-If you are on Windows OS, some packages may not be installed. Specifically - flask-script and feedparser. In case the web server doesn't run, please install these packages manually using
+If you are on Windows OS, some packages may not be installed. Specifically - feedparser. In case the web server doesn't run, please install these packages manually using
 
 ```bash
 pip install feedparser
-
-pip install flask-script
 ```
 
 #### Installing using Anaconda
@@ -71,8 +69,12 @@ conda create -q -n web-miner python=3.6 # create the environment
 source activate web-miner # activate the environment
 
 pip install -r requirements.txt # install the packages
+```
 
-python manage.py server # start server
+and test your installation by running the web server:
+
+```bash
+flask run # start server
 ```
 
 #### Installing using virtualenv and pip

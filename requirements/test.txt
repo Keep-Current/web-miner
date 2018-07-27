@@ -9,4 +9,3 @@ codecov
 gunicorn
 flake8
 Sphinx
-Flask-Script

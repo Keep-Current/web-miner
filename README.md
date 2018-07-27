@@ -46,16 +46,19 @@ brew install pipenv # with homebrew (on macOS)
 ```
 
 Install the packages and run the server
+
 ```bash
 pipenv install # install all packages
 
 pipenv run flask run # run the server
 ```
 
-If you are on Windows OS, some packages may not be installed. Specifically - feedparser. In case the web server doesn't run, please install these packages manually using 
+If you are on Windows OS, some packages may not be installed. Specifically - feedparser. In case the web server doesn't run, please install these packages manually using
+
 ```bash
 pip install feedparser
 ```
+
 #### Installing using Anaconda
 
 If you have anaconda installed, it's recommended to create an environment for the project, and install the dependencies in it.
@@ -69,8 +72,10 @@ pip install -r requirements.txt # install the packages
 ```
 
 and test your installation by running the web server:
+
 ```bash
 flask run # start server
+```
 
 #### Installing using virtualenv and pip
 

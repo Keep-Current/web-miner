@@ -1,3 +1,5 @@
+"""Defines the REST functionality and returns a response object"""
+
 import json
 from flask import Blueprint, request, Response
 
@@ -19,6 +21,15 @@ STATUS_CODES = {
 
 @blueprint.route("/arxiv", methods=["GET"])
 def arxiv():
+    """
+    Defines a GET route for the arxiv API.
+    Make the request object API ready.
+    Transform the response into JSON format
+
+    Returns:
+        object (JSON): A response object for further querying
+    """
+
     qrystr_params = {"filters": {}}
 
     for arg, values in request.args.items():
@@ -37,4 +48,3 @@ def arxiv():
         mimetype="application/json",
         status=STATUS_CODES[response.type],
     )
-

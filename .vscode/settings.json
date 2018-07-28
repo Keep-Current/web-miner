@@ -2,6 +2,7 @@
   "python.venvPath": "${workspaceFolder}/.venv/bin/python",
   "python.linting.pylintEnabled": true,
   "python.linting.enabled": true,
+  "python.linting.pylintArgs": ["--disable=C0330"],
   "python.formatting.provider": "black",
   "python.formatting.blackPath": "black",
   "python.pythonPath": "${workspaceFolder}/.venv/bin/python"

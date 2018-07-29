@@ -1,4 +1,16 @@
+"""Create classes for different responses"""
+
+
 class ResponseSuccess(object):
+    """Creates a class for a successful response
+
+    Args:
+        object (obj): Base object to be extended
+
+    Returns:
+        boolean: True on success
+    """
+
     SUCCESS = "SUCCESS"
 
     def __init__(self, value=None):
@@ -12,6 +24,15 @@ class ResponseSuccess(object):
 
 
 class ResponseFailure(object):
+    """Creates a class for a failed response
+
+    Args:
+        object (obj): Base object to be extended
+
+    Returns:
+        boolean: False on Failure
+    """
+
     RESOURCE_ERROR = "RESOURCE_ERROR"
     PARAMETERS_ERROR = "PARAMETERS_ERROR"
     SYSTEM_ERROR = "SYSTEM_ERROR"
@@ -48,7 +69,7 @@ class ResponseFailure(object):
     def build_from_invalid_request_object(cls, invalid_request_object):
         message = "\n".join(
             [
-                "{}: {}".format(err["parameter"], err["message"])
+                f"{err['parameter']}: {err['message']}"
                 for err in invalid_request_object.errors
             ]
         )

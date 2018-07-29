@@ -1,7 +1,22 @@
+"""
+Serializers allow complex data such as querysets and model instances to be converted
+to native Python datatypes that can then be easily rendered into JSON
+"""
+
 import json
 
+
 class ArxivDocEncoder(json.JSONEncoder):
-    def default(self, o):
+    """Encodes the arxiv document
+
+    Args:
+        json (obj): The JSON encoded object
+
+    Returns:
+        dict: The serialized format
+    """
+
+    def default(self, o):  # pylint: disable=E0202
         try:
             to_serialize = {
                 "id": o.doc_id,

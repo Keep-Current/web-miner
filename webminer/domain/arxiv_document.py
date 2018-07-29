@@ -1,7 +1,22 @@
+"""Creates an arxiv document class and registers it as domain model
+
+Returns:
+    class: ArxivDocument class
+"""
+
 from webminer.shared.domain_model import DomainModel
 
 
 class ArxivDocument(object):
+    """Create an arxiv document
+
+    Args:
+        object (obj): Base object to be extended
+
+    Returns:
+        class: Transformed and extended document
+    """
+
     def __init__(self, doc_id, title, abstract, authors, url, publish_date, pdf_url):
         self.doc_id = doc_id
         self.title = title
@@ -13,6 +28,15 @@ class ArxivDocument(object):
 
     @classmethod
     def from_dict(cls, feedparser_dict):
+        """Checks the feedparser dictionary and returns it as a document
+
+        Args:
+            feedparser_dict (feedParserDict): Dictionary from parsing the feed
+
+        Returns:
+            class object: ArxivDocument object
+        """
+
         pdf = ""
         for link in feedparser_dict["links"]:
             try:

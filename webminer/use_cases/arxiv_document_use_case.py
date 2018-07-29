@@ -1,5 +1,12 @@
+"""Connects the use case with the response object
+
+Returns:
+    class: For processing arxiv document list and apply the filtering on a repo
+"""
+
 from webminer.shared import use_case as uc
 from webminer.shared import response_object as res
+
 
 class ArxivDocumentListUseCase(uc.UseCase):
     def __init__(self, repo):

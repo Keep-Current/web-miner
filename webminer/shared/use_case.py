@@ -29,7 +29,7 @@ class UseCase(object):
             return res.ResponseFailure.build_from_invalid_request_object(request_object)
         try:
             return self.process_request(request_object)
-        except SystemError as exc:
+        except Exception as exc:
             return res.ResponseFailure.build_system_error(
                 f"{exc.__class__.__name__}: {exc}"
             )

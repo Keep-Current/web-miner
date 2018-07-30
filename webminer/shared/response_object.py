@@ -67,9 +67,20 @@ class ResponseFailure(object):
 
     @classmethod
     def build_from_invalid_request_object(cls, invalid_request_object):
+        """Create an error message from an invalid requested object
+
+        Args:
+            invalid_request_object (obj): The requested object that is invalid
+
+        Returns:
+            string: The message consisting of the error parameters and the message
+        """
+
+        error_parameter = err["parameter"]
+        error_message = err["message"]
         message = "\n".join(
             [
-                f"{err['parameter']}: {err['message']}"
+                f"{error_parameter}: {error_message}"
                 for err in invalid_request_object.errors
             ]
         )

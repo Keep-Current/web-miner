@@ -75,9 +75,10 @@ class ResponseFailure(object):
         Returns:
             string: The message consisting of the error parameters and the message
         """
+        for err in invalid_request_object.errors:
+            error_parameter = err["parameter"]
+            error_message = err["message"]
 
-        error_parameter = err["parameter"]
-        error_message = err["message"]
         message = "\n".join(
             [
                 f"{error_parameter}: {error_message}"

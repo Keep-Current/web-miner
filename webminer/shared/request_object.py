@@ -1,4 +1,23 @@
+"""Create a class for invalid request objects
+
+Raises:
+    NotImplementedError: If a request object is not valid
+
+Returns:
+    classes: For requested objects
+"""
+
+
 class InvalidRequestObject(object):
+    """Checks the requested object for errors
+
+    Args:
+        object (obj): Base object to be extended
+
+    Returns:
+        class methods: For handling (missing) errors
+    """
+
     def __init__(self):
         self.errors = []
 

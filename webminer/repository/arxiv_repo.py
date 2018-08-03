@@ -1,12 +1,4 @@
-import urllib.request
-import feedparser
-import json
-
-from webminer.domain import arxiv_document as ad
-
-
-class ArxivRepo:
-    """
+"""
     This is a helper class to parse arxiv.org site.
     It uses the arxiv.org REST API to search for articles.
 
@@ -14,29 +6,59 @@ class ArxivRepo:
     https://github.com/karpathy/arxiv-sanity-preserver/blob/master/fetch_papers.py
     and arxiv example:
     https://arxiv.org/help/api/examples/python_arXiv_parsing_example.txt
+"""
+
+import urllib.request
+import feedparser
+
+# from webminer.domain import arxiv_document as ad # TODO: in def list
+
+
+class ArxivRepo:
+    """
+        The helper class to parse arxiv.org site.
+
+    Raises:
+        ValueError: If formatting operator is not supported
+        AssertionError: If url parsing went wrong
+
+    Returns:
+        dict: Dictionary of results
     """
 
     # Base api query url
     base_url = "http://export.arxiv.org/api/query?"
 
-    # Opensearch metadata such as totalResults, startIndex,
-    # and itemsPerPage live in the opensearch namespase.
-    # Some entry metadata lives in the arXiv namespace.
-    # This is a hack to expose both of these namespaces in
-    # feedparser v4.1
-    feedparser._FeedParserMixin.namespaces[
+    # Expose both of the open source metadata namespaces in feedparser
+    feedparser._FeedParserMixin.namespaces[  # pylint: disable=W0212
         "http://a9.com/-/spec/opensearch/1.1/"
     ] = "opensearch"
-    feedparser._FeedParserMixin.namespaces["http://arxiv.org/schemas/atom"] = "arxiv"
+    feedparser._FeedParserMixin.namespaces[  # pylint: disable=W0212
+        "http://arxiv.org/schemas/atom"
+    ] = "arxiv"
 
     def _check(self, element, key, value):
+        """Checks elements and formats them
+
+        Args:
+            element (obj): Document object
+            key (string): Key in document object
+            value (string): Value of the corresponding document object
+
+        Raises:
+            ValueError: If some operators are not supported
+
+        Returns:
+            string: Value of the attribute of an object
+        """
+
         if "__" not in key:
             key = key + "__eq"
 
         key, operator = key.split("__")
 
         if operator not in ["eq", "lt", "gt"]:
-            raise ValueError("Operator {} is not supported".format(operator))
+            raise ValueError(f"Operator {operator} is not supported")
 
         operator = "__{}__".format(operator)
 
@@ -46,6 +68,7 @@ class ArxivRepo:
         if not filters:
             return self.fetch_papers()
 
+        # TODO
         # for key, value in filters.items():
         #    result = [e for e in result if self._check(e, key, value)]
 
@@ -69,12 +92,23 @@ class ArxivRepo:
             return fp_dict
 
     def extract_relevant_info(self, fp_dict):
+        """Extracts the relevant info
+
+        Args:
+            fp_dict (dict): Dictionary that provides the information
+
+        Returns:
+            dict: The dictionary with only relevant information
+        """
+
         ret_dict = {}
         ret_dict["publish_date"] = fp_dict["published"]
         ret_dict["authors"] = [auth["name"] for auth in fp_dict["authors"]]
         ret_dict["title"] = fp_dict["title"]
         ret_dict["abstract"] = fp_dict["summary"]
-        ret_dict["doc_id"] = fp_dict["doc_id"]  # may be redundant when guidislink == true
+        ret_dict["doc_id"] = fp_dict[
+            "doc_id"
+        ]  # may be redundant when guidislink == true
         ret_dict["link"] = fp_dict["link"]
 
         for link in fp_dict["links"]:
@@ -87,11 +121,19 @@ class ArxivRepo:
         return ret_dict
 
     def run_query(self, search_query, start=0, max_results=10):
-        query = "search_query=%s&sortBy=lastUpdatedDate&start=%i&max_results=%i" % (
-            search_query,
-            start,
-            max_results,
-        )
+        """Queries url and returns a parsed response
+
+        Args:
+            search_query (string): The terms we are looking for
+            start (int, optional): Defaults to 0. Start at results page
+            max_results (int, optional):
+                Defaults to 10. How many results shall be retrieved
+
+        Returns:
+            FeedParserDict: A parsed dictionary with the information
+        """
+
+        query = f"search_query={search_query}&sortBy=lastUpdatedDate&start={start}&max_results={max_results}"  # pylint: disable=C0301
         with urllib.request.urlopen(self.base_url + query) as url:
             response = url.read()
         parsed_response = feedparser.parse(response)
@@ -99,7 +141,7 @@ class ArxivRepo:
         return parsed_response
 
     def parse_arxiv_url(self, url):
-        """ 
+        """
         extracts the raw id and the version
         examples is http://arxiv.org/abs/1512.08756v2
         """
@@ -110,24 +152,32 @@ class ArxivRepo:
             raise AssertionError("error parsing url " + url)
         return parts[0], int(parts[1])
 
+    default_search_query = (
+        "cat:cs.CV+OR+cat:cs.AI+OR+cat:cs.LG+OR+cat:cs.CL+OR+cat:cs.NE+OR+cat:stat.ML"
+    )
+
     def fetch_papers(
         self,
-        search_query="cat:cs.CV+OR+cat:cs.AI+OR+cat:cs.LG+OR+cat:cs.CL+OR+cat:cs.NE+OR+cat:stat.ML",
+        search_query=default_search_query,
         start_index=0,
         max_index=100,
         results_per_iteration=100,
-        wait_time=5.0,
-        break_on_no_added=True,
+        # wait_time=5.0,
+        # break_on_no_added=True,
     ):
         """loops according to the results_per_iteration and fetch results pages from arxiv.org
 
         Keyword Arguments:
-            search_query {str} -- [arxiv.org topics to query] (default: {'cat:cs.CV+OR+cat:cs.AI+OR+cat:cs.LG+OR+cat:cs.CL+OR+cat:cs.NE+OR+cat:stat.ML'})
+            search_query {str} -- [arxiv.org topics to query]
+                (default: default_search_query)
             start_index {int} -- [pagination start index] (default: {0})
-            max_index {int} -- [upper bound on paper index we will fetch] (default: {10000})
+            max_index {int} --
+                [upper bound on paper index we will fetch] (default: {10000})
             results_per_iteration {int} -- [passed to arxiv API] (default: {100})
             wait_time {float} -- [pause in seconds between requests] (default: {5.0})
-            break_on_no_added {bool} -- [break out early if all returned query papers are already in db] (default: {True})
+            break_on_no_added {bool} --
+                [break out early if all returned query papers are already in db]
+                (default: {True})
         """
         # num_added_total = 0
         for i in range(start_index, max_index, results_per_iteration):
@@ -146,6 +196,7 @@ class ArxivRepo:
                 dict_entry["_rawid"] = rawid
                 dict_entry["_version"] = version
 
+                # TODO
                 # dict_entry['title']
                 # dict_entry['published']
                 # dict_entry['author']
@@ -159,4 +210,3 @@ class ArxivRepo:
                 results.append(dict_entry)
 
         return results
-

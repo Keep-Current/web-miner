@@ -1,8 +1,9 @@
+"""Declare configuration settings and return as class"""
 import os
 
 
-class Config(object):
-    """Base configuration."""
+class Config():
+    """Basic configuration that can be extended"""
 
     APP_DIR = os.path.abspath(os.path.dirname(__file__))  # This directory
     PROJECT_ROOT = os.path.abspath(os.path.join(APP_DIR, os.pardir))

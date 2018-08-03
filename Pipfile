@@ -22,10 +22,10 @@ black = "*"
 [dev-packages]
 
 [requires]
-python_version = "3.7"
+python_version="3.6"
 
 [pipenv]
-allow_prereleases = true
+allow_prereleases=true
 
 [environment]
 PIPENV_VENV_IN_PROJECT=true

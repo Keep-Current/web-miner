@@ -25,4 +25,4 @@ script:
 notifications:
   slack: vdsg:YeRk6YBgJuTEtaRT1pPp76pb
 after_success:
-  - codecov --token 80bcc8a7-2f30-4656-8565-709d5af5b8d0
+  - codecov --token 7395b350-ac40-4482-af86-a2e22064d323

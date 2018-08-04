@@ -17,14 +17,8 @@ class ArxivDocument(object):
         class: Transformed and extended document
     """
 
-    def __init__(self, doc_id, title, abstract, authors, url, publish_date, pdf_url):
-        self.doc_id = doc_id
-        self.title = title
-        self.abstract = abstract
-        self.authors = authors
-        self.url = url
-        self.publish_date = publish_date
-        self.pdf_url = pdf_url
+    def __init__(self, **kwargs):
+        self.__dict__.update(kwargs)
 
     @classmethod
     def from_dict(cls, feedparser_dict):

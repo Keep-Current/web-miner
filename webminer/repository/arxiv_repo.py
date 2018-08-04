@@ -71,7 +71,6 @@ class ArxivRepo:
         # TODO
         # for key, value in filters.items():
         #    result = [e for e in result if self._check(e, key, value)]
-
         # return [ad.ArxivDocument.from_dict(r) for r in result]
 
     def encode_feedparser_dict(self, fp_dict):
@@ -188,8 +187,6 @@ class ArxivRepo:
             results = []
 
             for entry in parsed_response.entries:
-                # print(json.dumps(entry, indent=4))
-                # dict_entry = encode_feedparser_dict(entry)
                 dict_entry = self.extract_relevant_info(entry)
 
                 rawid, version = self.parse_arxiv_url(dict_entry["link"])

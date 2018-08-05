@@ -18,6 +18,7 @@ Flask = "*"
 Sphinx = "*"
 pylint = "*"
 black = "*"
+pre-commit = "*"
 
 [dev-packages]
 

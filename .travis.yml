@@ -21,10 +21,9 @@ install:
   - pip install -r requirements.txt
 # command to run the tests:
 script:
- - py.test
+ - py.test --cov=codecov
 notifications:
   slack: vdsg:YeRk6YBgJuTEtaRT1pPp76pb
 after_success:
   - codecov
-  - bash < (curl -s https://codecov.io/bash)
 

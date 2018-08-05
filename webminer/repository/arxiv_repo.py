@@ -11,7 +11,7 @@
 import urllib.request
 import feedparser
 
-# from webminer.domain import arxiv_document as ad # TODO: in def list
+from webminer.domain import arxiv_document as ad
 
 
 class ArxivRepo:
@@ -36,6 +36,11 @@ class ArxivRepo:
     feedparser._FeedParserMixin.namespaces[  # pylint: disable=W0212
         "http://arxiv.org/schemas/atom"
     ] = "arxiv"
+
+    def __init__(self, entries=None):
+        self._entries = []
+        if entries:
+            self._entries.extend(entries)
 
     def _check(self, element, key, value):
         """Checks elements and formats them
@@ -65,13 +70,23 @@ class ArxivRepo:
         return getattr(element[key], operator)(value)
 
     def list(self, filters=None):
+        """Apply filters on entries and return a filtered list
+            filters (dict, optional): Defaults to None. Parameters to filter entries
+
+        Returns:
+            list: List of arxiv document objects
+        """
+
         if not filters:
             return self.fetch_papers()
 
-        # TODO
-        # for key, value in filters.items():
-        #    result = [e for e in result if self._check(e, key, value)]
-        # return [ad.ArxivDocument.from_dict(r) for r in result]
+        result = []
+        result.extend(self._entries)
+
+        for key, value in filters.items():
+            result = [e for e in result if self._check(e, key, value)]
+
+        return [ad.ArxivDocument.from_dict(r) for r in result]
 
     def encode_feedparser_dict(self, fp_dict):
         """
@@ -178,7 +193,7 @@ class ArxivRepo:
                 [break out early if all returned query papers are already in db]
                 (default: {True})
         """
-        # num_added_total = 0
+
         for i in range(start_index, max_index, results_per_iteration):
             print("Results %i - %i" % (i, i + results_per_iteration))
 
@@ -192,17 +207,6 @@ class ArxivRepo:
                 rawid, version = self.parse_arxiv_url(dict_entry["link"])
                 dict_entry["_rawid"] = rawid
                 dict_entry["_version"] = version
-
-                # TODO
-                # dict_entry['title']
-                # dict_entry['published']
-                # dict_entry['author']
-                # dict_entry['term'] # categories
-                # dict_entry['links'] # PDF
-                # dict_entry['summary'] #abstract
-
-                # print(json.dumps(dict_entry, indent=4))
-                # print('-----------------------------------------------')
 
                 results.append(dict_entry)
 

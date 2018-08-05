@@ -195,8 +195,6 @@ class ArxivRepo:
         """
 
         for i in range(start_index, max_index, results_per_iteration):
-            print("Results %i - %i" % (i, i + results_per_iteration))
-
             parsed_response = self.run_query(search_query, i, results_per_iteration)
 
             results = []

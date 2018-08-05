@@ -25,5 +25,6 @@ script:
 notifications:
   slack: vdsg:YeRk6YBgJuTEtaRT1pPp76pb
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - codecov
+  - bash < (curl -s https://codecov.io/bash)
 

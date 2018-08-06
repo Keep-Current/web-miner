@@ -2,8 +2,8 @@
 
 from flask import Flask
 
-from flask_server.rest import arxiv_document
-from flask_server.settings import DevConfig
+from webminer.external_interfaces.flask_server.rest import arxiv_document
+from webminer.external_interfaces.flask_server.settings import DevConfig
 
 
 def create_app(config_object=DevConfig):

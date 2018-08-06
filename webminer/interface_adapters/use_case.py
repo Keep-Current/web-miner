@@ -7,7 +7,7 @@ Returns:
     class: UseCase class
 """
 
-from webminer.shared import response_object as res
+from webminer.interface_adapters import response_object as res
 
 
 class UseCase(object):

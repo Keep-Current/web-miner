@@ -2,7 +2,7 @@ import pytest
 from unittest import mock
 
 from webminer.domain.arxiv_document import ArxivDocument
-from webminer.shared import response_object as res
+from webminer.interface_adapters import response_object as res
 from webminer.use_cases import request_objects as req
 from webminer.use_cases import arxiv_document_use_case as uc
 

@@ -1,6 +1,6 @@
 import pytest
 
-from webminer.shared import response_object as res, request_object as req
+from webminer.interface_adapters import response_object as res, request_object as req
 
 
 @pytest.fixture

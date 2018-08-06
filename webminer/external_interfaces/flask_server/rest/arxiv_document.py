@@ -4,9 +4,9 @@ import json
 from flask import Blueprint, request, Response
 
 from webminer.use_cases import request_objects as req
-from webminer.shared import response_object as res
-from webminer.repository import arxiv_repo as ar
 from webminer.use_cases import arxiv_document_use_case as uc
+from webminer.interface_adapters import response_object as res
+from webminer.repository import arxiv_repo as ar
 from webminer.serializers.json import arxiv_document_serializer as ser
 
 blueprint = Blueprint("arxiv", __name__)

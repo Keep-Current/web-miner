@@ -1,7 +1,7 @@
 from unittest import mock
 
-from webminer.shared import request_object as req, response_object as res
-from webminer.shared import use_case as uc
+from webminer.interface_adapters import request_object as req, response_object as res
+from webminer.interface_adapters import use_case as uc
 
 
 def test_use_case_cannot_process_valid_requests():

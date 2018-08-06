@@ -120,9 +120,7 @@ class ArxivRepo:
         ret_dict["authors"] = [auth["name"] for auth in fp_dict["authors"]]
         ret_dict["title"] = fp_dict["title"]
         ret_dict["abstract"] = fp_dict["summary"]
-        ret_dict["doc_id"] = fp_dict[
-            "doc_id"
-        ]  # may be redundant when guidislink == true
+        ret_dict["id"] = fp_dict["id"]
         ret_dict["link"] = fp_dict["link"]
 
         for link in fp_dict["links"]:

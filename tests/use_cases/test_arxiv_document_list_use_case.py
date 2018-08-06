@@ -2,9 +2,9 @@ import pytest
 from unittest import mock
 
 from webminer.entities.arxiv_document import ArxivDocument
-from webminer.interface_adapters import response_object as res
-from webminer.interface_adapters import request_objects as req
-from webminer.interface_adapters import arxiv_document_use_case as uc
+from webminer.interface_adapters.rest_adapters import response_object as res
+from webminer.interface_adapters.rest_adapters import request_objects as req
+from webminer.interface_adapters import process_arxiv_request as uc
 
 
 @pytest.fixture
@@ -56,7 +56,7 @@ def test_arxiv_doc_list_without_parameters(domain_storagerooms):
     repo = mock.Mock()
     repo.list.return_value = domain_storagerooms
 
-    arxiv_doc_list_use_case = uc.ArxivDocumentListUseCase(repo)
+    arxiv_doc_list_use_case = uc.ProcessArxivDocuments(repo)
     request_object = req.ArxivDocumentListRequestObject.from_dict({})
 
     response_object = arxiv_doc_list_use_case.execute(request_object)
@@ -71,7 +71,7 @@ def test_arxiv_doc_list_with_filters(domain_storagerooms):
     repo = mock.Mock()
     repo.list.return_value = domain_storagerooms
 
-    arxiv_doc_list_use_case = uc.ArxivDocumentListUseCase(repo)
+    arxiv_doc_list_use_case = uc.ProcessArxivDocuments(repo)
     qry_filters = {"a": 5}
     request_object = req.ArxivDocumentListRequestObject.from_dict(
         {"filters": qry_filters}
@@ -88,7 +88,7 @@ def test_arxiv_doc_list_handles_generic_error():
     repo = mock.Mock()
     repo.list.side_effect = Exception("Just an error message")
 
-    arxiv_doc_list_use_case = uc.ArxivDocumentListUseCase(repo)
+    arxiv_doc_list_use_case = uc.ProcessArxivDocuments(repo)
     request_object = req.ArxivDocumentListRequestObject.from_dict({})
 
     response_object = arxiv_doc_list_use_case.execute(request_object)
@@ -103,7 +103,7 @@ def test_arxiv_doc_list_handles_generic_error():
 def test_arxiv_doc_list_handles_bad_request():
     repo = mock.Mock()
 
-    arxiv_doc_list_use_case = uc.ArxivDocumentListUseCase(repo)
+    arxiv_doc_list_use_case = uc.ProcessArxivDocuments(repo)
     request_object = req.ArxivDocumentListRequestObject.from_dict({"filters": 5})
 
     response_object = arxiv_doc_list_use_case.execute(request_object)

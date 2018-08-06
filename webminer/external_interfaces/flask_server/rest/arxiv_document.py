@@ -3,9 +3,9 @@
 import json
 from flask import Blueprint, request, Response
 
-from webminer.interface_adapters import request_objects as req
-from webminer.interface_adapters import arxiv_document_use_case as uc
-from webminer.interface_adapters import response_object as res
+from webminer.interface_adapters.rest_adapters import request_objects as req
+from webminer.interface_adapters import process_arxiv_request as uc
+from webminer.interface_adapters.rest_adapters import response_object as res
 from webminer.use_cases.request_arxiv import arxiv_repo as ar
 from webminer.interface_adapters.serializers.json import arxiv_document_serializer as ser
 
@@ -39,7 +39,7 @@ def arxiv():
     request_object = req.ArxivDocumentListRequestObject.from_dict(qrystr_params)
 
     repo = ar.ArxivRepo()
-    use_case = uc.ArxivDocumentListUseCase(repo)
+    use_case = uc.ProcessArxivDocuments(repo)
 
     response = use_case.execute(request_object)
 

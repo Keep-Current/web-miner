@@ -7,10 +7,10 @@ Returns:
     class: UseCase class
 """
 
-from webminer.interface_adapters import response_object as res
+from webminer.interface_adapters.rest_adapters import response_object as res
 
 
-class UseCase(object):
+class RestInterface(object):
     """Creates the UseCase class
 
     Args:

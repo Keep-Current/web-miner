@@ -1,7 +1,7 @@
 """Takes the valid request object and returns a filtered arxiv document"""
 
 import collections
-from webminer.interface_adapters import request_object as req
+from webminer.interface_adapters.rest_adapters import request_object as req
 
 
 class ArxivDocumentListRequestObject(req.ValidRequestObject):

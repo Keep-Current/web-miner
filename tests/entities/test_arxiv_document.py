@@ -1,5 +1,5 @@
 import uuid
-from webminer.domain import arxiv_document as ad
+from webminer.entities import arxiv_document as ad
 
 test_url = "https://arxiv.org/abs/1801.06605"
 test_title = "A Collaborative Filtering Recommender System"

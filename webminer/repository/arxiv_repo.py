@@ -11,7 +11,7 @@
 import urllib.request
 import feedparser
 
-from webminer.domain import arxiv_document as ad
+from webminer.entities import arxiv_document as ad
 
 
 class ArxivRepo:

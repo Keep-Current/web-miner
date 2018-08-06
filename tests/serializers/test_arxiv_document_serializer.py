@@ -3,7 +3,7 @@ import json
 import pytest
 
 from webminer.serializers.json import arxiv_document_serializer as srs
-from webminer.domain.arxiv_document import ArxivDocument
+from webminer.entities.arxiv_document import ArxivDocument
 
 test_url = "https://arxiv.org/abs/1801.06605"
 test_title = "A Collaborative Filtering Recommender System"

@@ -3,8 +3,8 @@
 import json
 from flask import Blueprint, request, Response
 
-from webminer.use_cases import request_objects as req
-from webminer.use_cases import arxiv_document_use_case as uc
+from webminer.interface_adapters import request_objects as req
+from webminer.interface_adapters import arxiv_document_use_case as uc
 from webminer.interface_adapters import response_object as res
 from webminer.use_cases.request_arxiv import arxiv_repo as ar
 from webminer.interface_adapters.serializers.json import arxiv_document_serializer as ser

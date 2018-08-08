@@ -2,7 +2,7 @@
 
 We are so glad you're thinking about contributing to the Keep-Current project! If you're unsure about something, please don't hesitate to ask us.
 
-We want to ensure a welcoming environment for all the Keep-Current different repositories. Please follow the [Code of Conduct](Code_OF_CONDUCT.MD).
+We want to ensure a welcoming environment for all the Keep-Current different repositories. Please follow the [Code of Conduct](CODE_OF_CONDUCT.md).
 
 We encourage you to read the [License](LICENSE) and the [Readme](README.md).
 

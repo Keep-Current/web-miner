@@ -101,6 +101,9 @@ We follow the [clean architecture style](http://blog.thedigitalcatonline.com/blo
 
 _Image credit to [Thang Chung under MIT terms](https://github.com/thangchung/blog-core)_
 
+Most important rule:
+> Source code dependencies can only point inwards. Nothing in an inner circle can know anything at all about something in an outer circle. In particular, the name of something declared in an outer circle must not be mentioned by the code in the an inner circle. That includes, functions, classes. variables, or any other named software entity.
+
 ## Who are we?
 
 This project intends to be a shared work of meetup members, with the purpose, beside the obvious result, to also be used as a learning platform, while advancing the Natural Language Processing / Machine Learning field by exploring, comparing and hacking different models.

@@ -4,11 +4,11 @@ Returns:
     class: For processing arxiv document list and apply the filtering on a repo
 """
 
-from webminer.shared import use_case as uc
-from webminer.shared import response_object as res
+from webminer.interface_adapters.rest_adapters import rest_interface as uc
+from webminer.interface_adapters.rest_adapters import response_object as res
 
 
-class ArxivDocumentListUseCase(uc.UseCase):
+class ProcessArxivDocuments(uc.RestInterface):
     def __init__(self, repo):
         self.repo = repo
 

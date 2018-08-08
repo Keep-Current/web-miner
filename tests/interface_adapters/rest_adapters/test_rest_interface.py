@@ -1,14 +1,14 @@
 from unittest import mock
 
-from webminer.shared import request_object as req, response_object as res
-from webminer.shared import use_case as uc
+from webminer.interface_adapters.rest_adapters import request_object as req, response_object as res
+from webminer.interface_adapters.rest_adapters import rest_interface as uc
 
 
 def test_use_case_cannot_process_valid_requests():
     valid_request_object = mock.MagicMock()
     valid_request_object.__bool__.return_value = True
 
-    use_case = uc.UseCase()
+    use_case = uc.RestInterface()
     response = use_case.execute(valid_request_object)
 
     assert not response
@@ -23,7 +23,7 @@ def test_use_case_can_process_invalid_requests_and_returns_response_failure():
     invalid_request_object = req.InvalidRequestObject()
     invalid_request_object.add_error("someparam", "somemessage")
 
-    use_case = uc.UseCase()
+    use_case = uc.RestInterface()
     response = use_case.execute(invalid_request_object)
 
     assert not response
@@ -32,7 +32,7 @@ def test_use_case_can_process_invalid_requests_and_returns_response_failure():
 
 
 def test_use_case_can_manage_generic_exception_from_process_request():
-    use_case = uc.UseCase()
+    use_case = uc.RestInterface()
 
     class TestException(Exception):
         pass

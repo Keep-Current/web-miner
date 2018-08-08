@@ -4,7 +4,7 @@ Returns:
     class: ArxivDocument class
 """
 
-from webminer.shared.domain_model import DomainModel
+from webminer.entities.domain_model import DomainModel
 
 
 class ArxivDocument(object):

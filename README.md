@@ -116,6 +116,7 @@ Please visit
 - the project board on [Github](https://github.com/orgs/Keep-Current/projects)
 - the repository board on [Github](https://github.com/Keep-Current/web-miner/projects)
 - our chat room on [Slack](https://keep-current.slack.com). If you're new, you can join using [this link](https://join.slack.com/t/keep-current/shared_invite/enQtMzY3Mzk1NjE2MzIzLWZlZWFjMDM1YWYxYmI5ZWE4YmZjNWYzMmNjMzlhMDYzOTIxZDViODhmNTMzZDI0NThmZWVlOTRjNjczZGJiOWE)
+- our [facebook group](https://www.facebook.com/groups/308893846340861/) where we discuss and share current topics also outside of the project
 
 for more.
 

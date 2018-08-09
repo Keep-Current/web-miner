@@ -95,13 +95,16 @@ python3 manage.py server # start server
 
 ### Architecture
 
-We follow the [clean architecture style](http://blog.thedigitalcatonline.com/blog/2016/11/14/clean-architectures-in-python-a-step-by-step-example/) and structure the codebase accordingly.
+### Project Architecture
+
+We follow the [clean architecture style](https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html) and structure the codebase accordingly.
 
 ![cleanArchitecture image](https://cdn-images-1.medium.com/max/1600/1*B7LkQDyDqLN3rRSrNYkETA.jpeg)
 
-_Image credit to [Thang Chung under MIT terms](https://github.com/thangchung/blog-core)_
+_Image credit to [Uncle Bob](https://8thlight.com/blog/uncle-bob/)_
 
 Most important rule:
+
 > Source code dependencies can only point inwards. Nothing in an inner circle can know anything at all about something in an outer circle. In particular, the name of something declared in an outer circle must not be mentioned by the code in the an inner circle. That includes, functions, classes. variables, or any other named software entity.
 
 ## Who are we?

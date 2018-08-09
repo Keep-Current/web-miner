@@ -2,30 +2,51 @@
 
 We are so glad you're thinking about contributing to the Keep-Current project! If you're unsure about something, please don't hesitate to ask us.
 
-We want to ensure a welcoming environment for all the Keep-Current different repositories. Please follow the [Code of Conduct](Code_OF_CONDUCT.MD).
+We want to ensure a welcoming environment for all the Keep-Current different repositories. Please follow the [Code of Conduct](CODE_OF_CONDUCT.md).
 
-We encourage you to read the [License](LICENSE) and the [ReadMe](README.md).
+We encourage you to read the [License](LICENSE) and the [Readme](README.md).
 
-All contributions to this project will be released under the Apache License. By submitting a pull request, you are agreeing to comply with this waiver of copyright interest.
+## How to Contribute
 
-## Meetups
+You can find our Project board here on [GitHub](https://github.com/Keep-Current/web-miner/projects) and we use [Slack](https://keep-current.slack.com) as our communication channel. If you're new, you can join using [this link](https://join.slack.com/t/keep-current/shared_invite/enQtMzY4MTA0OTQ0NTAzLTcxY2U5NmIwNmM0NmU2MmMyMWQ0YTIyMTg4MWRjMWUyYmVlNWQxMzU3ZWJlNjM4NzVmNTFhM2FjYjkzZDU3YWM).
 
-We welcome anyone who would like to join and contribute. We meet regularly every month in Vienna through the Data Science Cafe meetup of the VDSG, show our progress and discuss the next steps. Please follow [our meetup page](https://www.meetup.com/Vienna-Data-Science-Group-Meetup/) to get updates regarding our next meeting.
+We welcome anyone who would like to join and contribute.
 
-## Web Miner
+We meet regularly every month in Vienna through
 
-This repository deploys a web miner, that given a specific set of sources (URLs), should locate new documents (web-pages) and save them in the DB for future processing
+- the [Data Science Cafe meetup of the VDSG](https://www.meetup.com/Vienna-Data-Science-Group-Meetup/) or
+- the [WeAreDevelopers :: Keep-Current meetup](https://www.meetup.com/WeAreDevelopers/)
 
-### Recommended tools:
+to show our progress and discuss the next steps.
 
-We lean heavily on existing tools as well as developing our own new methods. Among the existing tools we are using [scrapy](https://scrapy.org/) which later we hope to host on [scrapy-cloud](https://scrapinghub.com/scrapy-cloud).
-Another related tool that should be considered is [scrapy-splash](https://github.com/scrapy-plugins/scrapy-splash) which can render JS-based pages before storing them.
-[Textract](https://github.com/deanmalmgren/textract) can be used to extract the content, the text, to be saved.
+### Project Architecture
 
-### Vision & Roadmap
+We follow the [clean architecture style](https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html) and structure the codebase accordingly.
 
-We want to use this goal also as a reason to have a playground to implement, test, hack and compare different solutions.
+![cleanArchitecture image](https://cdn-images-1.medium.com/max/1600/1*B7LkQDyDqLN3rRSrNYkETA.jpeg)
 
-## I have different skills
+_Image credit to [Uncle Bob](https://8thlight.com/blog/uncle-bob/)_
 
-If you wish to assist in different aspects, such as Data Science, Data Engineering, Web development, DevOps, we have divided the project to several additional repositories focusing on these topics.
+Most important rule:
+
+> Source code dependencies can only point inwards. Nothing in an inner circle can know anything at all about something in an outer circle. In particular, the name of something declared in an outer circle must not be mentioned by the code in the an inner circle. That includes, functions, classes. variables, or any other named software entity.
+
+### Git workflow
+
+Currently we use an adapted version of [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow). We are currently not using the develop branch as the project structure does not require it. Everything else is the same.
+
+![gitflow image](https://www.bluesource.at/fileadmin/user_upload/bluesource/Wissen/Detailseite/git-model.jpg)
+
+_Image credit to [nvie.com](https://nvie.com/posts/a-successful-git-branching-model/)_
+
+### Issues / Pull Request
+
+We have created templates for issues and pull requests to ensure a coherent workflow.
+
+As a general rule, always make sure that:
+
+- you are formatting your code according to the black formatter
+- you are linting your code with pylint and our pylint settings
+- all tests pass
+
+We have several integration tools hooked up for reviewing pull requests. Make sure that those tests are also passing, and if not provide a detailled explanation why not and why it is not necessary to comply.

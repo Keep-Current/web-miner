@@ -90,7 +90,7 @@ source <targetDirectory>/./bin/activate # activate the virtualenv
 
 pip install -r requirements.txt # install the packages
 
-python3 manage.py server # start server
+flask run # start server
 ```
 
 ### Architecture

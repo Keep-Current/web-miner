@@ -16,10 +16,10 @@ gunicorn = "*"
 "flake8" = "*"
 Flask = "*"
 Sphinx = "*"
-pylint = "*"
-black = "*"
 
 [dev-packages]
+pylint = "*"
+black = "*"
 
 [requires]
 python_version="3.6"

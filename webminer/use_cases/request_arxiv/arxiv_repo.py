@@ -90,24 +90,26 @@ class ArxivRepo:
 
         return [ad.ArxivDocument.from_dict(r) for r in result]
 
-    def encode_feedparser_dict(self, fp_dict):
-        """
-        recursive function to convert the internal feedparse object to a simple dict
-        """
-        if isinstance(fp_dict, feedparser.FeedParserDict) or isinstance(fp_dict, dict):
-            ret_dict = {}
-            for key in fp_dict.keys():
-                ret_dict[key] = self.encode_feedparser_dict(fp_dict[key])
-            return ret_dict
-        elif isinstance(fp_dict, list):
-            dict_list = []
-            for key in fp_dict:
-                dict_list.append(self.encode_feedparser_dict(key))
-            return dict_list
-        else:
-            return fp_dict
+    # @classmethod
+    # def encode_feedparser_dict(cls, fp_dict):
+    #     """
+    #     recursive function to convert the internal feedparse object to a simple dict
+    #     """
+    #     if isinstance(fp_dict, feedparser.FeedParserDict) or isinstance(fp_dict, dict):
+    #         ret_dict = {}
+    #         for key in fp_dict.keys():
+    #             ret_dict[key] = self.encode_feedparser_dict(fp_dict[key])
+    #         return ret_dict
+    #     elif isinstance(fp_dict, list):
+    #         dict_list = []
+    #         for key in fp_dict:
+    #             dict_list.append(self.encode_feedparser_dict(key))
+    #         return dict_list
+    #     else:
+    #         return fp_dict
 
-    def extract_relevant_info(self, fp_dict):
+    @classmethod
+    def extract_relevant_info(cls, fp_dict):
         """Extracts the relevant info
 
         Args:
@@ -149,11 +151,12 @@ class ArxivRepo:
 
         query = f"search_query={search_query}&sortBy=lastUpdatedDate&start={start}&max_results={max_results}"  # pylint: disable=C0301
         r = requests.get(self.base_url + query)
-        parsed_response = feedparser.parse(r.text())
+        parsed_response = feedparser.parse(r.text)
 
         return parsed_response
 
-    def parse_arxiv_url(self, url):
+    @classmethod
+    def parse_arxiv_url(cls, url):
         """
         extracts the raw id and the version
         examples is http://arxiv.org/abs/1512.08756v2

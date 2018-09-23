@@ -21,6 +21,7 @@ requests = "*"
 [dev-packages]
 pylint = "*"
 black = "*"
+responses = "*"
 
 [requires]
 python_version="3.6"

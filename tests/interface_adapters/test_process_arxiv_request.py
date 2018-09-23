@@ -12,6 +12,9 @@ from webminer.interface_adapters import process_arxiv_request as uc
 
 @pytest.fixture
 def domain_arxivdocs():
+    """Creates a fixture for the returned objects 
+    """
+
     arxiv_doc_1 = ArxivDocument(
         doc_id="url_1",
         url="url_1",
@@ -85,7 +88,7 @@ def test_arxiv_doc_list_without_parameters(domain_arxivdocs):
 def test_arxiv_doc_list_with_filters(domain_arxivdocs):
     """Tests calling the usecase filter with parameters
     TODO - implement that part.
-    
+  
     Args:
         domain_arxivdocs ([type]): The expected filtered documents
     """
@@ -140,7 +143,7 @@ def test_arxiv_doc_list_handles_bad_request():
 
     response_object = arxiv_doc_list_use_case.execute(request_object)
 
-    if bool(response_object):       
+    if bool(response_object):
         raise AssertionError("response_object supposed to be empty")
     if response_object.value != {
         "type": res.ResponseFailure.PARAMETERS_ERROR,

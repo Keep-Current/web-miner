@@ -8,7 +8,7 @@
     https://arxiv.org/help/api/examples/python_arXiv_parsing_example.txt
 """
 
-import urllib.request
+import requests
 import feedparser
 
 from webminer.entities import arxiv_document as ad
@@ -146,9 +146,8 @@ class ArxivRepo:
         """
 
         query = f"search_query={search_query}&sortBy=lastUpdatedDate&start={start}&max_results={max_results}"  # pylint: disable=C0301
-        with urllib.request.urlopen(self.base_url + query) as url:
-            response = url.read()
-        parsed_response = feedparser.parse(response)
+        r = requests.get(self.base_url + query)
+        parsed_response = feedparser.parse(r.text())
 
         return parsed_response
 

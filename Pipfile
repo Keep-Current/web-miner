@@ -16,6 +16,7 @@ gunicorn = "*"
 "flake8" = "*"
 Flask = "*"
 Sphinx = "*"
+requests = "*"
 
 [dev-packages]
 pylint = "*"

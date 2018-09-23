@@ -120,8 +120,8 @@ def test_arxiv_doc_list_handles_generic_error():
 
     response_object = arxiv_doc_list_use_case.execute(request_object)
 
-    if not bool(response_object):
-        raise AssertionError("response_object is empty")
+    if bool(response_object):
+        raise AssertionError("response_object supposed to be empty")
     if response_object.value != {
         "type": res.ResponseFailure.SYSTEM_ERROR,
         "message": "Exception: Just an error message",
@@ -140,8 +140,8 @@ def test_arxiv_doc_list_handles_bad_request():
 
     response_object = arxiv_doc_list_use_case.execute(request_object)
 
-    if not bool(response_object):       
-        raise AssertionError("response_object is empty")
+    if bool(response_object):       
+        raise AssertionError("response_object supposed to be empty")
     if response_object.value != {
         "type": res.ResponseFailure.PARAMETERS_ERROR,
         "message": "filters: Is not iterable",

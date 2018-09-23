@@ -52,14 +52,18 @@ def domain_arxivdocs():
     """
     return [arxiv_doc_1, arxiv_doc_2, arxiv_doc_3, arxiv_doc_4]
 
+def assert_equal(arg1, arg2):
+    if arg1 != arg2:
+        raise AssertionError("Assert equal failed - values are not equal")
 
 def _check_results(domain_models_list, data_list):
-    assert len(domain_models_list) == len(data_list)
-    assert all([isinstance(dm, DomainModel) for dm in domain_models_list])
-    assert set([dm.doc_id for dm in domain_models_list]) == \
-           set([d['doc_id'] for d in data_list])
+    assert_equal(len(domain_models_list), len(data_list))
+    if not all([isinstance(dm, DomainModel) for dm in domain_models_list]):
+        raise AssertionError("not all domain model returned true")
+    assert_equal(set([dm.doc_id for dm in domain_models_list]),
+           set([d['doc_id'] for d in data_list]))
 
 def test_repository_list_without_parameters(domain_arxivdocs):
     repo = a_repo.ArxivRepo(domain_arxivdocs)
 
-    assert repo.list() == domain_arxivdocs
+    assert_equal(repo.list(), domain_arxivdocs)

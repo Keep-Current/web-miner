@@ -79,7 +79,7 @@ class ArxivRepo:
 
         if not filters:
             return self._entries
-        
+     
         self._entries = self.fetch_papers()
 
         result = []

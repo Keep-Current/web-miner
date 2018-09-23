@@ -27,13 +27,13 @@ def test_arxiv_doc_model_init():
         publish_date=test_publish_date,
         pdf_url=test_pdf_url,
     )
-    assert arxiv_doc.doc_id == code
-    assert arxiv_doc.url == test_url
-    assert arxiv_doc.title == test_title
-    assert arxiv_doc.abstract == test_abstract
-    assert arxiv_doc.authors == test_authors
-    assert arxiv_doc.publish_date == test_publish_date
-    assert arxiv_doc.pdf_url == test_pdf_url
+    assert_equal(arxiv_doc.doc_id, code)
+    assert_equal(arxiv_doc.url, test_url)
+    assert_equal(arxiv_doc.title, test_title)
+    assert_equal(arxiv_doc.abstract, test_abstract)
+    assert_equal(arxiv_doc.authors, test_authors)
+    assert_equal(arxiv_doc.publish_date, test_publish_date)
+    assert_equal(arxiv_doc.pdf_url, test_pdf_url)
 
 
 def test_arxiv_doc_model_from_dict():
@@ -52,10 +52,14 @@ def test_arxiv_doc_model_from_dict():
             "links": [{"title": "pdf", "href": "https://arxiv.org/pdf/1801.06605"}],
         }
     )
-    assert arxiv_doc.doc_id == code
-    assert arxiv_doc.url == test_url
-    assert arxiv_doc.title == test_title
-    assert arxiv_doc.abstract == test_abstract
-    assert arxiv_doc.authors == test_authors
-    assert arxiv_doc.publish_date == test_publish_date
-    assert arxiv_doc.pdf_url == test_pdf_url
+    assert_equal(arxiv_doc.doc_id, code)
+    assert_equal(arxiv_doc.url, test_url)
+    assert_equal(arxiv_doc.title, test_title)
+    assert_equal(arxiv_doc.abstract, test_abstract)
+    assert_equal(arxiv_doc.authors, test_authors)
+    assert_equal(arxiv_doc.publish_date, test_publish_date)
+    assert_equal(arxiv_doc.pdf_url, test_pdf_url)
+
+def assert_equal(arg1, arg2):
+    if arg1 != arg2:
+        raise AssertionError("Assert equal failed - values are not equal")

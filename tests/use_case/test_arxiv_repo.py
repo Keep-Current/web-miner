@@ -47,74 +47,7 @@ arxiv_doc_4 = ArxivDocument(
     pdf_url="pfg_url4",
 )
 
-arxiv_result = [
-    {
-        "publish_date": "2018-09-20T17:48:27Z",
-        "authors": ["Mart KartaÅ¡ev", "Carlo Rapisarda", "Dominik Fay"],
-        "title": "Implementing Adaptive Separable Convolution for Video Frame\n  Interpolation",
-        "abstract": "As Deep Neural Networks are becoming more popular, much of the attention is\nbeing devoted to Computer Vision problems that used to be solved with more\ntraditional approaches. Video frame interpolation is one of such challenges\nthat has seen new research involving various techniques in deep learning. In\nthis paper, we replicate the work of Niklaus et al. on Adaptive Separable\nConvolution, which claims high quality results on the video frame interpolation\ntask. We apply the same network structure trained on a smaller dataset and\nexperiment with various different loss functions, in order to determine the\noptimal approach in data-scarce scenarios. The best resulting model is still\nable to provide visually pleasing videos, although achieving lower evaluation\nscores.",
-        "id": "http://arxiv.org/abs/1809.07759v1",
-        "link": "http://arxiv.org/abs/1809.07759v1",
-        "pdf": "http://arxiv.org/pdf/1809.07759v1",
-        "_rawid": "1809.07759",
-        "_version": 1,
-    },
-    {
-        "publish_date": "2018-06-05T03:49:46Z",
-        "authors": [
-            "Amir Sadeghian",
-            "Vineet Kosaraju",
-            "Ali Sadeghian",
-            "Noriaki Hirose",
-            "S. Hamid Rezatofighi",
-            "Silvio Savarese",
-        ],
-        "title": "SoPhie: An Attentive GAN for Predicting Paths Compliant to Social and\n  Physical Constraints",
-        "abstract": "This paper addresses the problem of path prediction for multiple interacting\nagents in a scene, which is a crucial step for many autonomous platforms such\nas self-driving cars and social robots. We present \textit{SoPhie}; an\ninterpretable framework based on Generative Adversarial Network (GAN), which\nleverages two sources of information, the path history of all the agents in a\nscene, and the scene context information, using images of the scene. To predict\na future path for an agent, both physical and social information must be\nleveraged. Previous work has not been successful to jointly model physical and\nsocial interactions. Our approach blends a social attention mechanism with a\nphysical attention that helps the model to learn where to look in a large scene\nand extract the most salient parts of the image relevant to the path. Whereas,\nthe social attention component aggregates information across the different\nagent interactions and extracts the most important trajectory information from\nthe surrounding neighbors. SoPhie also takes advantage of GAN to generates more\nrealistic samples and to capture the uncertain nature of the future paths by\nmodeling its distribution. All these mechanisms enable our approach to predict\nsocially and physically plausible paths for the agents and to achieve\nstate-of-the-art performance on several different trajectory forecasting\nbenchmarks.",
-        "id": "http://arxiv.org/abs/1806.01482v2",
-        "link": "http://arxiv.org/abs/1806.01482v2",
-        "pdf": "http://arxiv.org/pdf/1806.01482v2",
-        "_rawid": "1806.01482",
-        "_version": 2,
-    },
-]
-
-
-@pytest.fixture
-def domain_arxivdocs():
-    """Creates a fixture for the returned objects
-    """
-    return [arxiv_doc_1, arxiv_doc_2, arxiv_doc_3, arxiv_doc_4]
-
-
-def assert_equal(arg1, arg2):
-    if arg1 != arg2:
-        raise AssertionError("Assert equal failed - values are not equal")
-
-
-def _check_results(domain_models_list, data_list):
-    assert_equal(len(domain_models_list), len(data_list))
-    if not all([isinstance(dm, DomainModel) for dm in domain_models_list]):
-        raise AssertionError("not all domain model returned true")
-    assert_equal(
-        set([dm.doc_id for dm in domain_models_list]),
-        set([d["doc_id"] for d in data_list]),
-    )
-
-
-def test_repository_list_without_parameters(domain_arxivdocs):
-    repo = a_repo.ArxivRepo(domain_arxivdocs)
-
-    assert_equal(repo.list(), domain_arxivdocs)
-
-
-@responses.activate
-def test_extract_relevant_info():
-    url = "http://export.arxiv.org/api/query?search_query=cat:cs.CV+OR+cat:cs.AI+OR+cat:cs.LG+OR+cat:cs.CL+OR+cat:cs.NE+OR+cat:stat.ML&sortBy=lastUpdatedDate&start=0&max_results=100"
-    responses.add(
-        method=responses.GET,
-        url=url,
-        body="""<?xml version="1.0" encoding="UTF-8"?>
+arxiv_response = """<?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <link href="http://arxiv.org/api/query?search_query%3Dcat%3Acs.CV%20OR%20cat%3Acs.AI%20OR%20cat%3Acs.LG%20OR%20cat%3Acs.CL%20OR%20cat%3Acs.NE%20OR%20cat%3Astat.ML%26id_list%3D%26start%3D1%26max_results%3D100" rel="self" type="application/atom+xml"/>
   <title type="html">ArXiv Query: search_query=cat:cs.CV OR cat:cs.AI OR cat:cs.LG OR cat:cs.CL OR cat:cs.NE OR cat:stat.ML&amp;id_list=&amp;start=1&amp;max_results=100</title>
@@ -131,15 +64,7 @@ def test_extract_relevant_info():
   Interpolation</title>
     <summary>  As Deep Neural Networks are becoming more popular, much of the attention is
 being devoted to Computer Vision problems that used to be solved with more
-traditional approaches. Video frame interpolation is one of such challenges
-that has seen new research involving various techniques in deep learning. In
-this paper, we replicate the work of Niklaus et al. on Adaptive Separable
-Convolution, which claims high quality results on the video frame interpolation
-task. We apply the same network structure trained on a smaller dataset and
-experiment with various different loss functions, in order to determine the
-optimal approach in data-scarce scenarios. The best resulting model is still
-able to provide visually pleasing videos, although achieving lower evaluation
-scores.
+traditional approaches.
 </summary>
     <author>
       <name>Mart Kartašev</name>
@@ -164,23 +89,7 @@ scores.
   Physical Constraints</title>
     <summary>  This paper addresses the problem of path prediction for multiple interacting
 agents in a scene, which is a crucial step for many autonomous platforms such
-as self-driving cars and social robots. We present \textit{SoPhie}; an
-interpretable framework based on Generative Adversarial Network (GAN), which
-leverages two sources of information, the path history of all the agents in a
-scene, and the scene context information, using images of the scene. To predict
-a future path for an agent, both physical and social information must be
-leveraged. Previous work has not been successful to jointly model physical and
-social interactions. Our approach blends a social attention mechanism with a
-physical attention that helps the model to learn where to look in a large scene
-and extract the most salient parts of the image relevant to the path. Whereas,
-the social attention component aggregates information across the different
-agent interactions and extracts the most important trajectory information from
-the surrounding neighbors. SoPhie also takes advantage of GAN to generates more
-realistic samples and to capture the uncertain nature of the future paths by
-modeling its distribution. All these mechanisms enable our approach to predict
-socially and physically plausible paths for the agents and to achieve
-state-of-the-art performance on several different trajectory forecasting
-benchmarks.
+as self-driving cars and social robots.
 </summary>
     <author>
       <name>Amir Sadeghian</name>
@@ -204,12 +113,78 @@ benchmarks.
     <link title="pdf" href="http://arxiv.org/pdf/1806.01482v2" rel="related" type="application/pdf"/>
     <arxiv:primary_category xmlns:arxiv="http://arxiv.org/schemas/atom" term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
     <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
-  </entry>""",
-        status=200,
+  </entry>"""
+
+arxiv_result = [
+    {
+        "publish_date": "2018-09-20T17:48:27Z",
+        "authors": ["Mart KartaÅ¡ev", "Carlo Rapisarda", "Dominik Fay"],
+        "title": "Implementing Adaptive Separable Convolution for Video Frame\n  Interpolation",
+        "abstract": "As Deep Neural Networks are becoming more popular, much of the attention is\nbeing devoted to Computer Vision problems that used to be solved with more\ntraditional approaches.",
+        "id": "http://arxiv.org/abs/1809.07759v1",
+        "link": "http://arxiv.org/abs/1809.07759v1",
+        "pdf": "http://arxiv.org/pdf/1809.07759v1",
+        "_rawid": "1809.07759",
+        "_version": 1,
+    },
+    {
+        "publish_date": "2018-06-05T03:49:46Z",
+        "authors": [
+            "Amir Sadeghian",
+            "Vineet Kosaraju",
+            "Ali Sadeghian",
+            "Noriaki Hirose",
+            "S. Hamid Rezatofighi",
+            "Silvio Savarese",
+        ],
+        "title": "SoPhie: An Attentive GAN for Predicting Paths Compliant to Social and\n  Physical Constraints",
+        "abstract": "This paper addresses the problem of path prediction for multiple interacting\nagents in a scene, which is a crucial step for many autonomous platforms such\nas self-driving cars and social robots.",
+        "id": "http://arxiv.org/abs/1806.01482v2",
+        "link": "http://arxiv.org/abs/1806.01482v2",
+        "pdf": "http://arxiv.org/pdf/1806.01482v2",
+        "_rawid": "1806.01482",
+        "_version": 2,
+    },
+]
+
+
+@pytest.fixture
+def domain_arxivdocs():
+    """Creates a fixture for the returned objects
+    """
+    return [arxiv_doc_1, arxiv_doc_2, arxiv_doc_3, arxiv_doc_4]
+
+
+def assert_equal(arg1, arg2):
+    if arg1 != arg2:
+        print("arg1: ", arg1)
+        print("arg2: ", arg1)
+        raise AssertionError("Assert equal failed - values are not equal")
+
+
+def _check_results(domain_models_list, data_list):
+    assert_equal(len(domain_models_list), len(data_list))
+    if not all([isinstance(dm, DomainModel) for dm in domain_models_list]):
+        raise AssertionError("not all domain model returned true")
+    assert_equal(
+        set([dm.doc_id for dm in domain_models_list]),
+        set([d["doc_id"] for d in data_list]),
     )
+
+
+def test_repository_list_without_parameters(domain_arxivdocs):
+    repo = a_repo.ArxivRepo(domain_arxivdocs)
+
+    assert_equal(repo.list(), domain_arxivdocs)
+
+
+@responses.activate
+def test_extract_relevant_info():
+    url = "http://export.arxiv.org/api/query?search_query=cat:cs.CV+OR+cat:cs.AI+OR+cat:cs.LG+OR+cat:cs.CL+OR+cat:cs.NE+OR+cat:stat.ML&sortBy=lastUpdatedDate&start=0&max_results=100"
+    responses.add(method=responses.GET, url=url, body=arxiv_response, status=200)
 
     repo = a_repo.ArxivRepo()
     result = repo.fetch_papers()
 
-    assert len(result) > 0
-    assert result == arxiv_result
+    assert_equal(len(result), 2)
+    assert_equal(result, arxiv_result)

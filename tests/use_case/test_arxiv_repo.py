@@ -120,10 +120,10 @@ arxiv_result = [
         "publish_date": "2018-09-20T17:48:27Z",
         "authors": ["Mart KartaÅ¡ev", "Carlo Rapisarda", "Dominik Fay"],
         "title": "Implementing Adaptive Separable Convolution for Video"
-        +" Frame\n  Interpolation",
+        + " Frame\n  Interpolation",
         "abstract": "As Deep Neural Networks are becoming more popular,"
-        +" much of the attention is\nbeing devoted to Computer Vision problems"
-        +" that used to be solved with more\ntraditional approaches.",
+        + " much of the attention is\nbeing devoted to Computer Vision problems"
+        + " that used to be solved with more\ntraditional approaches.",
         "id": "http://arxiv.org/abs/1809.07759v1",
         "link": "http://arxiv.org/abs/1809.07759v1",
         "pdf": "http://arxiv.org/pdf/1809.07759v1",
@@ -141,11 +141,11 @@ arxiv_result = [
             "Silvio Savarese",
         ],
         "title": "SoPhie: An Attentive GAN for Predicting Paths Compliant"
-        +" to Social and\n  Physical Constraints",
+        + " to Social and\n  Physical Constraints",
         "abstract": "This paper addresses the problem of path prediction for"
-        +" multiple interacting\nagents in a scene, which is a crucial step"
-        +" for many autonomous platforms such\nas self-driving cars and "
-        +"social robots.",
+        + " multiple interacting\nagents in a scene, which is a crucial step"
+        + " for many autonomous platforms such\nas self-driving cars and "
+        + "social robots.",
         "id": "http://arxiv.org/abs/1806.01482v2",
         "link": "http://arxiv.org/abs/1806.01482v2",
         "pdf": "http://arxiv.org/pdf/1806.01482v2",

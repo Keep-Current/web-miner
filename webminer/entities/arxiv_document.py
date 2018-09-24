@@ -7,11 +7,8 @@ Returns:
 from webminer.entities.domain_model import DomainModel
 
 
-class ArxivDocument(object):
+class ArxivDocument():
     """Create an arxiv document
-
-    Args:
-        object (obj): Base object to be extended
 
     Returns:
         class: Transformed and extended document

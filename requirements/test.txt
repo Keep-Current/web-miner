@@ -9,3 +9,4 @@ codecov
 gunicorn
 flake8
 Sphinx
+responses

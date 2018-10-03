@@ -68,7 +68,9 @@ conda create -q -n web-miner python=3.6 # create the environment
 
 source activate web-miner # activate the environment
 
-pip install -r requirements.txt # install the packages
+pip install pipenv
+
+pipenv install
 ```
 
 and test your installation by running the web server:
@@ -88,7 +90,9 @@ virtualenv --python3 <targetDirectory> # create the environment
 
 source <targetDirectory>/./bin/activate # activate the virtualenv
 
-pip install -r requirements.txt # install the packages
+pip install pipenv
+
+pipenv install
 
 flask run # start server
 ```

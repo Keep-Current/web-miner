@@ -18,7 +18,8 @@ install:
   - conda create -q -n test-environment python=$TRAVIS_PYTHON_VERSION
   - source activate test-environment
   # python setup.py install
-  - pip install -r requirements.txt
+  - pip install pipenv
+  - pipenv install
 # command to run the tests:
 script:
  - py.test --cov=./

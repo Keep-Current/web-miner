@@ -6,5 +6,6 @@ WORKDIR /webminer
 # Copies Everything
 COPY . .        
 RUN CGO_ENABLED=0 GOOS=linux pip install --upgrade pip \
-    && pip install -r requirements.txt
+    && pip install pipenv \
+    && pipenv install
 CMD [ "flask", "run", "--host=0.0.0.0" ]

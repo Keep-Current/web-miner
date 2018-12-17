@@ -13,9 +13,11 @@
 
 This repository is the web miner of the [Keep-Current project](#keep-current-project).
 
-The goal is to deploy a web crawler, that given a specific set of sources (URLs), should locate new documents (web-pages) and save them in the DB for future processing.
+The goal is to deploy a web crawler, that given a specific set of sources (URLs), should locate new documents (web-pages) and pass them forward for future processing.
 When possible and legal, an API can be used.
 For example, for [arxiv.org](https://arxiv.org/help/api/index).
+
+The Web-miner acts intrinsically. It has an internal scheduler to crawl the sites. The latest results are exposed through a REST API but also forwarded by raising a message-queue event.
 
 ### Potential tools to implement
 

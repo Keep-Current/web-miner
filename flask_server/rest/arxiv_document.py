@@ -1,15 +1,15 @@
 """Defines the REST functionality and returns a response object"""
 
-import json
+import logging
+
 from flask import Blueprint, request, Response
+import ujson
 
 from webminer.use_cases.request_arxiv import arxiv_repo as ar
-from webminer.interface_adapters import process_arxiv_request as uc
-from webminer.interface_adapters.rest_adapters import request_objects as req
-from webminer.interface_adapters.rest_adapters import response_object as res
-from webminer.interface_adapters.serializers.json import arxiv_document_serializer as ser
-
-blueprint = Blueprint("arxiv", __name__)
+from webminer import process_arxiv_request as uc
+from webminer.rest_adapters import request_objects as req
+from webminer.shared import response_object as res
+from webminer.serializers.json import arxiv_document_serializer as ser
 
 STATUS_CODES = {
     res.ResponseSuccess.SUCCESS: 200,
@@ -18,8 +18,16 @@ STATUS_CODES = {
     res.ResponseFailure.SYSTEM_ERROR: 500,
 }
 
+LOGGER = logging.getLogger('flask.app')
+sh = logging.StreamHandler()
+sh.setLevel(logging.INFO)
+LOGGER.addHandler(sh)
 
-@blueprint.route("/arxiv", methods=["GET"])
+ARXIV = Blueprint("arxiv", __name__)
+
+
+
+@ARXIV.route("/arxiv", methods=["GET"])
 def arxiv():
     """
     Defines a GET route for the arxiv API.
@@ -44,7 +52,7 @@ def arxiv():
     response = use_case.execute(request_object)
 
     return Response(
-        json.dumps(response.value, cls=ser.ArxivDocEncoder),
+        ujson.dumps(response.value, cls=ser.ArxivDocEncoder),
         mimetype="application/json",
         status=STATUS_CODES[response.type],
     )

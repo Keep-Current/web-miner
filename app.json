@@ -5,11 +5,12 @@
   "image": "heroku/python",
   "repository": "https://github.com/Keep-Current/Web-Miner",
   "keywords": ["python", "crawler", "miner", "flask"],
+  "stack": "heroku-16",
   "environments": {
     "test": {
       "scripts": {
-        "test-setup": "python manage.py collectstatic --noinput",
-        "test": "python manage.py test"
+        "test-setup": "python app.py collectstatic --noinput",
+        "test": "python app.py test"
       }
     }
   }

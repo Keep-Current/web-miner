@@ -1,0 +1,12 @@
+version: '3'
+services:
+  engine:
+    build:
+      context: ../
+      dockerfile: deploy/Dockerfile
+    image: keep-current/web-miner
+    tty: true
+    ports:
+      - "5000:5000"
+    environment: 
+      - "PORT=5000"
